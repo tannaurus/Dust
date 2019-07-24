@@ -6,22 +6,18 @@ public class Inventory : MonoBehaviour
 {
     public Transform reachHand;
     public Transform hand;
+    public Transform head;
     public int reachDistance = 5;
     public int throwForce = 3;
 
     private bool canHold = true;
     private GameObject inHold;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
         InputListener();
+        UpdateHoldItem();
     }
 
     void InputListener()
@@ -32,27 +28,32 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    void Grab()
+    void UpdateHoldItem()
     {
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, reachDistance))
-        {
-            hit.collider.gameObject.transform.SetParent(hand);
-        }
+        if (canHold) return;
+
+        inHold.transform.position = Vector3.Lerp(inHold.transform.position, hand.position, 0.5f);
+    }
+
+    bool IsItem(Collider col)
+    {
+        return col.gameObject.tag == "Item";
     }
 
     void OnHold() 
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, reachDistance))
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        if (!canHold) {
+            Drop();
+        }
+        else if (Physics.Raycast(ray, out hit, reachDistance))
         {
-            if (canHold)
+            if (IsItem(hit.collider))
             {
                 Hold(hit.collider);
             }
-        } else if (!canHold)
-        {
-            Throw();
         }
     }
 
@@ -60,17 +61,18 @@ public class Inventory : MonoBehaviour
     {
         inHold = col.gameObject;
         inHold.transform.parent = hand;
-        inHold.transform.position = hand.position;
         Rigidbody holdRb = inHold.GetComponent<Rigidbody>();
         holdRb.useGravity = false;
+        holdRb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
         canHold = false;
     }
 
-    void Throw()
+    void Drop()
     {
         inHold.transform.parent = null;
         Rigidbody holdRb = inHold.GetComponent<Rigidbody>();
         holdRb.useGravity = true;
+        holdRb.constraints = RigidbodyConstraints.FreezePositionY & RigidbodyConstraints.FreezePositionX & RigidbodyConstraints.FreezePositionZ;
         holdRb.AddForce(transform.forward * throwForce);
         canHold = true;
     }
