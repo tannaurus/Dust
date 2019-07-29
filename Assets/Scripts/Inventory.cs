@@ -6,7 +6,7 @@ public class Inventory : MonoBehaviour
 {
     public Transform reach;
     public Transform grab;
-    public Collider hand;
+    // public Collider hand;
 
     public int reachDistance = 5;
     public int throwForce = 3;
@@ -76,7 +76,7 @@ public class Inventory : MonoBehaviour
         inGrab = col.gameObject;
         inGrab.transform.parent = grab;
         GrabbedItem itemScript = inGrab.AddComponent<GrabbedItem>();
-        itemScript.player = hand;
+        // itemScript.player = hand;
         itemScript.Init();
         Rigidbody grabRb = inGrab.GetComponent<Rigidbody>();
         grabRb.useGravity = false;

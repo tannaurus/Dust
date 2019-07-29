@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class GrabbedItem : MonoBehaviour
 {
-    public Collider player;
+    // public Collider player;
 
     public void Init()
     {
-        Physics.IgnoreCollision(player, GetComponent<Collider>(), true);
+        // To-do: reinclude below lines once player grab animation is in place
+        // Physics.IgnoreCollision(player, GetComponent<Collider>(), true);
     }
 
     public void Reset() 
     {
-        Physics.IgnoreCollision(player, GetComponent<Collider>(), false);
+        // Physics.IgnoreCollision(player, GetComponent<Collider>(), false);
     }
 }

@@ -270,8 +270,11 @@ public class BETA_SETTINGS{
 
     }
 
+    private Animator anim;
+
     private void Start()
     {
+        anim = gameObject.GetComponent<Animator>();
         #region Look Settings - Start
 
         if(autoCrosshair)
