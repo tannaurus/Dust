@@ -2,15 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ship_Controller : MonoBehaviour
+public class Ship_Velocity_Controller : MonoBehaviour
 {
     public float speed = 90f;
 		public float speedMultiplier = 50f;
 		private float maxSpeed = 100f;
 		public int gear = 0;
 		private int maxGear = 3;
-    public float horizontalSensitivity = 3f;
-    public float verticalSensitivity = 2f;
 
     // Update is called once per frame
     void Update()
@@ -28,12 +26,6 @@ public class Ship_Controller : MonoBehaviour
 
 			Debug.Log(speedOffset);
 			speed -= speedOffset;
-
-			transform.Rotate(Input.GetAxis("Vertical") * verticalSensitivity, 0.0f, Input.GetAxis("Horizontal") * horizontalSensitivity * -1);
-			float terrainHeightWhereWeAre = Terrain.activeTerrain.SampleHeight(transform.position);
-			if(terrainHeightWhereWeAre > transform.position.y) {
-					Debug.Log("Ground!");
-			}
 		}
 
 		void PlayerSpeedController() {
