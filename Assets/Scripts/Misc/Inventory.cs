@@ -6,7 +6,7 @@ public class Inventory : MonoBehaviour
 {
     public Transform reach;
     public Transform grab;
-    // public Collider hand;
+    public Canvas UI;
 
     public int reachDistance = 5;
     public int throwForce = 3;

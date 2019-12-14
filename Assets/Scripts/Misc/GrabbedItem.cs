@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GrabbedItem : MonoBehaviour
 {
-    // public Collider player;
+    public GameObject UI;
 
     public void Init()
     {

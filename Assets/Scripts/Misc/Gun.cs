@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Gun : MonoBehaviour
 {
     public Transform emitter;
     public GameObject bullet;
+
+    private int bulletCount = 10;
 
     void Update()
     {
