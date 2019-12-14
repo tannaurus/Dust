@@ -636,6 +636,9 @@ GameObject:
   - component: {fileID: 1095108957}
   - component: {fileID: 1095108958}
   - component: {fileID: 1095108959}
+  - component: {fileID: 1095108962}
+  - component: {fileID: 1095108961}
+  - component: {fileID: 1095108960}
   m_Layer: 0
   m_Name: Ship
   m_TagString: Untagged
@@ -685,11 +688,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa2f22a4d49bb4ddc80ec650a0d66b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 90
-  speedMultiplier: 1
-  gear: 0
+--- !u!114 &1095108960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095108956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be2532e7e14a548f985bdeb2d2f7ea50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   horizontalSensitivity: 3
   verticalSensitivity: 2
+--- !u!114 &1095108961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095108956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8631c5b9af6e437a93c8e41a2b9376c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1095108962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095108956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3ed0e8fa7f73437b9a330a0aea87d34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 90
+  speedMultiplier: 50
+  gear: 0
 --- !u!1 &1305900217
 GameObject:
   m_ObjectHideFlags: 0
