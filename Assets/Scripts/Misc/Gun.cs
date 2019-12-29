@@ -8,7 +8,7 @@ public class Gun : MonoBehaviour
     public Transform emitter;
     public GameObject bullet;
 
-    private int bulletCount = 10;
+    // private int bulletCount = 10;
 
     void Update()
     {

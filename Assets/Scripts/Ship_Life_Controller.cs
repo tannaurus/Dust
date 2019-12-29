@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Ship_Life_Controller : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class Ship_Life_Controller : MonoBehaviour
 		void LifeController() {
 			float terrainHeightWhereWeAre = Terrain.activeTerrain.SampleHeight(transform.position);
 			if(terrainHeightWhereWeAre > transform.position.y) {
-					Application.LoadLevel(Application.loadedLevel);
+					SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 			}
 		}
 }
