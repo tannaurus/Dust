@@ -8,24 +8,27 @@ public class Ship_Velocity_Controller : MonoBehaviour
 	public float thrust = 0f;
 
 	private int gear = 1;
+	private int maxGear = 5;
 
-	public FixedUpdate() {
+	public Rigidbody engine;
 
+	public void FixedUpdate() {
+		ApplyTrust();
 	}
 
-	public Update() {
+	public void Update() {
 		Transmission();
 	}
 
 	// Getters
 
 	// Actors
-	void AppleTrust() {
-		
+	private void ApplyTrust() {
+		engine.AddForce(transform.forward * thrust * 100f);
 	}
 
 	// Watchers
-	void Transmission() {
+	private void Transmission() {
 			if (Input.GetKeyDown(KeyCode.E) && gear < maxGear) {
 				thrust++;
 			}
