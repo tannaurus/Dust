@@ -7,19 +7,18 @@ public class Player_Controller : MonoBehaviour
 	public float speedMultiplier = 1f; 
 	public float mouseSensitivityMultiplier = 1.2f;
 	public float jumpForce = 5f;
-	private Animator animator;
+	public GameObject playerModel;
+	private Animator model_animator;
 	private Rigidbody rigidbody;
 	void Start()
 	{
-			animator = GetComponent<Animator>();
 			rigidbody = GetComponent<Rigidbody>();
+			model_animator = playerModel.GetComponent<Animator>();
 	}
 
 	void Update()
 	{
 		MovePlayer();
-
-		// RotatePlayer();
 
 		Jump();
 	}
@@ -28,7 +27,7 @@ public class Player_Controller : MonoBehaviour
 	void MovePlayer() {
 		Vector3 displacement = transform.position;
 		if (Input.GetKey(KeyCode.W) | Input.GetKey(KeyCode.S)) {
-			animator.SetTrigger("Walk");
+			model_animator.SetBool("Moving", true);
 			if (Input.GetKey(KeyCode.W)) {
 				displacement += transform.forward;
 			}
@@ -36,17 +35,10 @@ public class Player_Controller : MonoBehaviour
 				displacement -= transform.forward;
 			}
 		} else {
-			animator.SetTrigger("Idle");
+			model_animator.SetBool("Moving", false);
 		}
 		transform.position = Vector3.Lerp(transform.position, displacement, speedMultiplier * Time.deltaTime);
 	}
-
-	// void RotatePlayer() {
-	// 	Vector2 playerPositionOnScreen = Camera.main.WorldToViewportPoint(transform.position); 
-	// 	Vector2 mousePositionOnScreen = (Vector2)Camera.main.ScreenToViewportPoint(Input.mousePosition);
-	// 	float angleBetweenPositions = AngleBetweenTwoPoints(playerPositionOnScreen, mousePositionOnScreen);
-	// 	transform.rotation =  Quaternion.Euler (new Vector3(0f, -angleBetweenPositions * mouseSensitivityMultiplier, 0f));
-	// }
 
 	void Jump() {
 		if (IsGrounded() & Input.GetKeyDown(KeyCode.Space)) {
