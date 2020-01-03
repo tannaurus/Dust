@@ -6,10 +6,11 @@ public class Player_Controller : MonoBehaviour
 {
 	public float speedMultiplier = 1f; 
 	public float mouseSensitivityMultiplier = 1.2f;
-	public float jumpForce = 5f;
+	public int jumpForce = 1;
 	public GameObject playerModel;
 	private Animator model_animator;
 	private Rigidbody rigidbody;
+	public bool jumping = false;
 	void Start()
 	{
 			rigidbody = GetComponent<Rigidbody>();
@@ -19,32 +20,42 @@ public class Player_Controller : MonoBehaviour
 	void Update()
 	{
 		MovePlayer();
-
-		Jump();
 	}
 
 	// Actions
 	void MovePlayer() {
+		Debug.Log(IsGrounded());
 		Vector3 displacement = transform.position;
-		if (Input.GetKey(KeyCode.W) | Input.GetKey(KeyCode.S)) {
-			model_animator.SetBool("Moving", true);
 			if (Input.GetKey(KeyCode.W)) {
 				displacement += transform.forward;
 			}
 			if (Input.GetKey(KeyCode.S)) {
 				displacement -= transform.forward;
 			}
+			if (Input.GetKey(KeyCode.D)) {
+				displacement += transform.right;
+			}
+			if (Input.GetKey(KeyCode.A)) {
+				displacement -= transform.right;
+			}
+		if (displacement != transform.position) {
+			model_animator.SetBool("Moving", true);
 		} else {
 			model_animator.SetBool("Moving", false);
 		}
-		transform.position = Vector3.Lerp(transform.position, displacement, speedMultiplier * Time.deltaTime);
-	}
-
-	void Jump() {
 		if (IsGrounded() & Input.GetKeyDown(KeyCode.Space)) {
-			rigidbody.AddForce(transform.up * jumpForce);
+			rigidbody.AddForce(displacement * jumpForce, ForceMode.Impulse);
+			jumping = true;
+		} else if (!jumping) {
+			transform.position = Vector3.Lerp(transform.position, displacement, speedMultiplier * Time.deltaTime);
 		}
 	}
+
+	// void Jump() {
+	// 	if (IsGrounded() & Input.GetKeyDown(KeyCode.Space)) {
+	// 		rigidbody.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+	// 	}
+	// }
 	
 	// Helpers
 	float AngleBetweenTwoPoints(Vector3 a, Vector3 b) {
@@ -52,6 +63,6 @@ public class Player_Controller : MonoBehaviour
 	}
 
 	bool IsGrounded() {
-		return Physics.Raycast(transform.position, -Vector3.up, 0.5f);
+		return Physics.Raycast(transform.position, -Vector3.up, 3f /* guess the player's height */ );
 	}
 }
