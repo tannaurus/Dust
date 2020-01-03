@@ -27,20 +27,22 @@ public class Player_Controller : MonoBehaviour
 	// Actions
 	void MovePlayer() {
 		Vector3 modifiedPosition = transform.position;
-			if (Input.GetKey(KeyCode.W)) {
-				modifiedPosition += transform.forward;
-			}
-			if (Input.GetKey(KeyCode.S)) {
-				modifiedPosition -= transform.forward;
-			}
-			if (Input.GetKey(KeyCode.D)) {
-				modifiedPosition += transform.right;
-			}
-			if (Input.GetKey(KeyCode.A)) {
-				modifiedPosition -= transform.right;
-			}
+		if (Input.GetKey(KeyCode.W)) {
+			modifiedPosition += transform.forward;
+		}
+		if (Input.GetKey(KeyCode.S)) {
+			modifiedPosition -= transform.forward;
+		}
+		if (Input.GetKey(KeyCode.D)) {
+			modifiedPosition += transform.right;
+		}
+		if (Input.GetKey(KeyCode.A)) {
+			modifiedPosition -= transform.right;
+		}
+
 		UpdateAnimator(modifiedPosition);
 
+		// Jump
 		Vector3 displacement = transform.position - modifiedPosition;
 		if (IsGrounded() & Input.GetKeyDown(KeyCode.Space)) {
 			rigidbody.velocity += (displacement + Vector3.up) * jumpForce;
@@ -63,6 +65,11 @@ public class Player_Controller : MonoBehaviour
 		} else {
 			model_animator.SetBool("Moving", false);
 		}
+		Debug.Log(rigidbody.velocity);
+		model_animator.SetFloat("VerticalVelocity", rigidbody.velocity.y);
+		model_animator.SetFloat("ForwardMovement", playerMovement.z - transform.position.z);
+		model_animator.SetFloat("HorizontalMovement", playerMovement.x - transform.position.x);
+		model_animator.SetBool("Grounded", IsGrounded());
 	}
 	
 	// Helpers
