@@ -280,28 +280,6 @@ Transform:
   m_Father: {fileID: 1040581534}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &333743410 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1008154795965022141, guid: 62eeca3e46dc04fbd931ec56cfbec550,
-    type: 3}
-  m_PrefabInstance: {fileID: 1008154796298697359}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &333743415
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 333743410}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 347c6bfd6ccfa41808309d7c4ab8c674, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Speed: 100
-  ParabolaRoot: {fileID: 565561315}
-  Autostart: 1
-  Animation: 1
 --- !u!4 &333743417 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1008154795965022134, guid: 62eeca3e46dc04fbd931ec56cfbec550,
@@ -7317,7 +7295,7 @@ PrefabInstance:
     - target: {fileID: 1008154795965022137, guid: 62eeca3e46dc04fbd931ec56cfbec550,
         type: 3}
       propertyPath: speedMultiplier
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1008154795965022137, guid: 62eeca3e46dc04fbd931ec56cfbec550,
         type: 3}
@@ -7327,7 +7305,22 @@ PrefabInstance:
     - target: {fileID: 1008154795965022137, guid: 62eeca3e46dc04fbd931ec56cfbec550,
         type: 3}
       propertyPath: jumpForce
-      value: 10
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1008154795965022137, guid: 62eeca3e46dc04fbd931ec56cfbec550,
+        type: 3}
+      propertyPath: mouseSensitivityMultiplier
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1008154795965022137, guid: 62eeca3e46dc04fbd931ec56cfbec550,
+        type: 3}
+      propertyPath: fallMultiplier
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1008154795965022137, guid: 62eeca3e46dc04fbd931ec56cfbec550,
+        type: 3}
+      propertyPath: lowJumpMultipler
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1008154795965022139, guid: 62eeca3e46dc04fbd931ec56cfbec550,
         type: 3}

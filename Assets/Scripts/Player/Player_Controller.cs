@@ -10,7 +10,8 @@ public class Player_Controller : MonoBehaviour
 	public GameObject playerModel;
 	private Animator model_animator;
 	private Rigidbody rigidbody;
-	public bool jumping = false;
+	public float fallMultiplier = 1f;
+	public float lowJumpMultipler = 1f;
 	void Start()
 	{
 			rigidbody = GetComponent<Rigidbody>();
@@ -20,48 +21,51 @@ public class Player_Controller : MonoBehaviour
 	void Update()
 	{
 		MovePlayer();
+		JumpGravityModifer();
 	}
 
 	// Actions
 	void MovePlayer() {
-		Debug.Log(IsGrounded());
-		Vector3 displacement = transform.position;
+		Vector3 modifiedPosition = transform.position;
 			if (Input.GetKey(KeyCode.W)) {
-				displacement += transform.forward;
+				modifiedPosition += transform.forward;
 			}
 			if (Input.GetKey(KeyCode.S)) {
-				displacement -= transform.forward;
+				modifiedPosition -= transform.forward;
 			}
 			if (Input.GetKey(KeyCode.D)) {
-				displacement += transform.right;
+				modifiedPosition += transform.right;
 			}
 			if (Input.GetKey(KeyCode.A)) {
-				displacement -= transform.right;
+				modifiedPosition -= transform.right;
 			}
-		if (displacement != transform.position) {
+		UpdateAnimator(modifiedPosition);
+
+		Vector3 displacement = transform.position - modifiedPosition;
+		if (IsGrounded() & Input.GetKeyDown(KeyCode.Space)) {
+			rigidbody.velocity += (displacement + Vector3.up) * jumpForce;
+		} 
+		
+		transform.position = Vector3.Lerp(transform.position, modifiedPosition, speedMultiplier * Time.deltaTime);
+	}
+
+	void JumpGravityModifer() {
+		if (rigidbody.velocity.y < 0) {
+			rigidbody.velocity += Vector3.up * Physics.gravity.y * fallMultiplier * Time.deltaTime;
+		} else if (rigidbody.velocity.y > 0) {
+			rigidbody.velocity += Vector3.up * Physics.gravity.y * lowJumpMultipler * Time.deltaTime;
+		}
+	}
+
+	void UpdateAnimator(Vector3 playerMovement) {
+		if (playerMovement != transform.position) {
 			model_animator.SetBool("Moving", true);
 		} else {
 			model_animator.SetBool("Moving", false);
 		}
-		if (IsGrounded() & Input.GetKeyDown(KeyCode.Space)) {
-			rigidbody.AddForce(displacement * jumpForce, ForceMode.Impulse);
-			jumping = true;
-		} else if (!jumping) {
-			transform.position = Vector3.Lerp(transform.position, displacement, speedMultiplier * Time.deltaTime);
-		}
 	}
-
-	// void Jump() {
-	// 	if (IsGrounded() & Input.GetKeyDown(KeyCode.Space)) {
-	// 		rigidbody.AddForce(transform.up * jumpForce, ForceMode.Impulse);
-	// 	}
-	// }
 	
 	// Helpers
-	float AngleBetweenTwoPoints(Vector3 a, Vector3 b) {
-		return Mathf.Atan2(a.y - b.y, a.x - b.x) * Mathf.Rad2Deg;
-	}
-
 	bool IsGrounded() {
 		return Physics.Raycast(transform.position, -Vector3.up, 3f /* guess the player's height */ );
 	}
