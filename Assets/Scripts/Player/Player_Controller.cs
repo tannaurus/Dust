@@ -12,6 +12,9 @@ public class Player_Controller : MonoBehaviour
 	private Rigidbody rigidbody;
 	public float fallMultiplier = 1f;
 	public float lowJumpMultipler = 1f;
+
+	// Will disable this controller to be overwritten by another.
+	public bool forceOverride = false;
 	void Start()
 	{
 			rigidbody = GetComponent<Rigidbody>();
@@ -20,6 +23,9 @@ public class Player_Controller : MonoBehaviour
 
 	void Update()
 	{
+		if (forceOverride) {
+			return;
+		}
 		MovePlayer();
 		JumpGravityModifer();
 	}
