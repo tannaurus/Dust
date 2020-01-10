@@ -14,7 +14,7 @@ public class Glider : Item
     }
 
 		public void Update() {
-			GliderController();
+			// GliderController();
 			base.OnUpdate();
 		}
 
@@ -47,6 +47,7 @@ public class Glider : Item
 		private float GetClampedVerticalAxis() {
 			float verticalAxis = Input.GetAxis("Vertical") * verticalSensitivity;
 			float parentX = transform.parent.parent.eulerAngles.x;
+			// Arbitrary clamps because this value passes the 0 mark and jumps straight to 360
 			if (parentX > 50 && parentX < 80) {
 				verticalAxis = -1f;
 			} else if (parentX > 300 && parentX < 345) {
@@ -58,6 +59,7 @@ public class Glider : Item
 		private float GetClampedHorizontalAxis() {
 			float horizontalAxis = Input.GetAxis("Horizontal") * horizontalSensitivity * -1;
 			float parentZ = transform.parent.parent.eulerAngles.z;
+			// Arbitrary clamps because this value passes the 0 mark and jumps straight to 360
 			if (parentZ > 45 && parentZ < 90) {
 				horizontalAxis = -1f;
 			} 
