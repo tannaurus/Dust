@@ -2,20 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Glider : Item
+public class Glider : MonoBehaviour
 {	
 		public float horizontalSensitivity = 1.5f;
     public float verticalSensitivity = 1.2f;
     private Player_Controller playerController;
+		private Item itemInfo;
 
     public void Start()
     {
     	playerController = GetComponentInParent<Player_Controller>();
+			itemInfo = GetComponent<Item>();
     }
 
 		public void Update() {
 			// GliderController();
-			base.OnUpdate();
 		}
 
 		private void GliderController() {
@@ -37,9 +38,9 @@ public class Glider : Item
 			}
 		}
 		private void HandlePlayerControllerOverrideStatus() {
-			if (!playerController.forceOverride && base.IsEquipped()) {
+			if (!playerController.forceOverride && itemInfo.equipped) {
 				playerController.forceOverride = true;
-			} else if (playerController.forceOverride && !base.IsEquipped()) {
+			} else if (playerController.forceOverride && !itemInfo.equipped) {
 				playerController.forceOverride = false;
 			}
 		}

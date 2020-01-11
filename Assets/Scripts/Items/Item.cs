@@ -13,11 +13,6 @@ public class Item : MonoBehaviour
 			OnKeyHandler(key);
 		}
 
-		// Getters
-		public bool IsEquipped() {
-			return equipped;
-		}
-
 		// Handlers
     public void OnKeyHandler(KeyCode _key) {
 			if (Input.GetKeyDown(_key)) {
