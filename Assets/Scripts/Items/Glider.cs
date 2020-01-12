@@ -38,9 +38,9 @@ public class Glider : MonoBehaviour
 			}
 		}
 		private void HandlePlayerControllerOverrideStatus() {
-			if (!playerController.forceOverride && itemInfo.equipped) {
+			if (!playerController.forceOverride && itemInfo.location == ItemLocation.InHand) {
 				playerController.forceOverride = true;
-			} else if (playerController.forceOverride && !itemInfo.equipped) {
+			} else if (playerController.forceOverride && itemInfo.location != ItemLocation.InHand) {
 				playerController.forceOverride = false;
 			}
 		}

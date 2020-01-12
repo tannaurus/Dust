@@ -1,22 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Item : MonoBehaviour
 {
 		public int id;
-		public string name;
-		public KeyCode key = KeyCode.F;
-		public bool equipped = false;
+		public string title;
+		public Image icon;
+		public KeyCode actionKey = KeyCode.F;
+		public ItemLocation location = ItemLocation.None;
 
-		public void OnUpdate() {
-			OnKeyHandler(key);
+		public void Update() {
+			OnKeyHandler(actionKey);
 		}
 
 		// Handlers
     public void OnKeyHandler(KeyCode _key) {
-			if (Input.GetKeyDown(_key)) {
-				Debug.Log("Equipped");
+			if (Input.GetKeyDown(_key) && location == ItemLocation.InHand) {
+				Debug.Log("Action!");
 			}
 		}
 

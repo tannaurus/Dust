@@ -71,7 +71,6 @@ public class Player_Controller : MonoBehaviour
 		} else {
 			model_animator.SetBool("Moving", false);
 		}
-		Debug.Log(rigidbody.velocity);
 		model_animator.SetFloat("VerticalVelocity", rigidbody.velocity.y);
 		model_animator.SetFloat("ForwardMovement", playerMovement.z - transform.position.z);
 		model_animator.SetFloat("HorizontalMovement", playerMovement.x - transform.position.x);
