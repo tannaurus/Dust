@@ -173,8 +173,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 0
   itemTitle: 
-  itemIcon: {fileID: 0}
   populated: 0
+  slotButton: {fileID: 9207349434295447974}
+  slotImage: {fileID: 9207349434224631945}
+  slotCloseButton: {fileID: 9207349433776040835}
 --- !u!1 &9207349434224631951
 GameObject:
   m_ObjectHideFlags: 0

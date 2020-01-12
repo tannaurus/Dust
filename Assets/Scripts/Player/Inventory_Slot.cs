@@ -8,8 +8,11 @@ public class Inventory_Slot : MonoBehaviour
 	// In an empty slot, itemId's will still be an int.
 	public int itemId;
 	public string itemTitle;
-	public Image itemIcon;
 	public bool populated;
+
+	public Button slotButton;
+	public Image slotImage;
+	public Button slotCloseButton;
 
 	// Getters
 	public bool Populated() {
@@ -25,14 +28,19 @@ public class Inventory_Slot : MonoBehaviour
 		populated = false;
 		itemId = 0;
 		itemTitle = null;
-		itemIcon = null;
+		slotImage.sprite = null;
+		slotImage.enabled = false;
 	}
 
 	public void Set(Item item) {
+		if (populated) {
+			return;
+		}
 		Debug.Log("Set!");
 		populated = true;
 		itemId = item.id;
 		itemTitle = item.title;
-		itemIcon = item.icon;
+		slotImage.sprite = item.icon;
+		slotImage.enabled = true;
 	}
 }

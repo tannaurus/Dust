@@ -7,7 +7,7 @@ public class Item : MonoBehaviour
 {
 		public int id;
 		public string title;
-		public Image icon;
+		public Sprite icon;
 		public KeyCode actionKey = KeyCode.F;
 		public ItemLocation location = ItemLocation.None;
 		public static string ITEM_TAG = "Item";

@@ -4203,6 +4203,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stick
       objectReference: {fileID: 0}
+    - target: {fileID: 1459412556976006621, guid: ad5fb58b2143844f497a3d7bcefa7ea9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1459412556976006620, guid: ad5fb58b2143844f497a3d7bcefa7ea9,
         type: 3}
       propertyPath: m_LocalPosition.x

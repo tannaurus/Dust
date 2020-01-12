@@ -36,6 +36,7 @@ public class Player_Inventory : MonoBehaviour
 			return;
 		}
 
+		item.gameObject.SetActive(false);
 		// if (!IsInventoryFull(QuickInventory, QUICK_INVENTORY_SIZE)) {
 		//	item.location = ItemLocation.QuickInv;
 		// 	QuickInventory = GetNewInventoryWithPlacedItem(QuickInventory, item);
@@ -111,6 +112,8 @@ public class Player_Inventory : MonoBehaviour
 				FullInventorySlots[i].Populated() &&
 				FullInventorySlots[i].itemId != fItem.id
 			) {
+				FullInventorySlots[i].Set(fItem);
+			} else if (!FullInventorySlots[i].Populated()) {
 				FullInventorySlots[i].Set(fItem);
 			}
 		}

@@ -15,6 +15,9 @@ public class Player_Item_Pickup : MonoBehaviour
 			return;
 		}
 		Item item = col.gameObject.GetComponent<Item>();
+		if (item.location != ItemLocation.None) {
+			return;
+		}
 		inventory.PickUp(item);
 	}
 }
