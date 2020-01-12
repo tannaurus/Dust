@@ -30,6 +30,7 @@ public class Inventory_Slot : MonoBehaviour
 		itemTitle = null;
 		slotImage.sprite = null;
 		slotImage.enabled = false;
+		slotCloseButton.interactable = false;
 	}
 
 	public void Set(Item item) {
@@ -42,5 +43,6 @@ public class Inventory_Slot : MonoBehaviour
 		itemTitle = item.title;
 		slotImage.sprite = item.icon;
 		slotImage.enabled = true;
+		slotCloseButton.interactable = true;
 	}
 }

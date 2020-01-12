@@ -13,7 +13,7 @@ public enum ItemLocation {
 // * Do we need inventory item structures? Can the UI 
 public class Player_Inventory : MonoBehaviour
 {
-	public Transform FullInventoryParent;
+	public Transform FullInventorySlotsParent;
 	public int QUICK_INVENTORY_SIZE = 9;
 	public int FULL_INVENTORY_SIZE = 16;
 	private Item[] QuickInventory;
@@ -61,7 +61,7 @@ public class Player_Inventory : MonoBehaviour
 	void Init() {
 		QuickInventory = new Item[QUICK_INVENTORY_SIZE];
 		FullInventory = new Item[FULL_INVENTORY_SIZE];
-		FullInventorySlots = FullInventoryParent.GetComponentsInChildren<Inventory_Slot>();
+		FullInventorySlots = FullInventorySlotsParent.GetComponentsInChildren<Inventory_Slot>();
 	}
 	void UpdateInventories() {
 		UpdateQuickInventory();
