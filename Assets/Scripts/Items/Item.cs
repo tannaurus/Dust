@@ -10,6 +10,11 @@ public class Item : MonoBehaviour
 		public Image icon;
 		public KeyCode actionKey = KeyCode.F;
 		public ItemLocation location = ItemLocation.None;
+		public static string ITEM_TAG = "Item";
+
+		public void Awake() {
+			gameObject.tag = ITEM_TAG;
+		}
 
 		public void Update() {
 			OnKeyHandler(actionKey);

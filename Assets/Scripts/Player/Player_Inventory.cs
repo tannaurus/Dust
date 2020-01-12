@@ -31,11 +31,7 @@ public class Player_Inventory : MonoBehaviour
 	}
 
 	// Actions
-	public void PickUp(ItemLocation location, Item item) {
-		if (location == ItemLocation.None) {
-			Debug.LogError("PlayerInventory.PickUp is being used incorrectly, was given 'None' as a location.");
-			return;
-		}
+	public void PickUp(Item item) {
 		if (!CanPickUp()) {
 			return;
 		}
@@ -123,8 +119,10 @@ public class Player_Inventory : MonoBehaviour
 
 	bool IsInventoryFull(Item[] inventory, int maxLength) {
 		int count = 0;
-		foreach(Item i in inventory) {
-			count++;
+		foreach(Item item in inventory) {
+			if (!!item) {
+				count++;
+			}
 		}
 		return count == maxLength;
 	}
