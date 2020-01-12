@@ -548,28 +548,6 @@ MonoBehaviour:
   FullInventoryParent: {fileID: 2000884757}
   QUICK_INVENTORY_SIZE: 9
   FULL_INVENTORY_SIZE: 16
---- !u!1 &334957214 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9207349434037023361, guid: c937b55fe2f8c4d9fa465e2274b416a1,
-    type: 3}
-  m_PrefabInstance: {fileID: 9207349435228244588}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &334957215
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 334957214}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 181c6a4b218f34d5c80490bd89d63efd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 0
-  itemTitle: 
-  itemIcon: {fileID: 0}
-  populated: 0
 --- !u!1 &468659504 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7330873824652559165, guid: c01b7a774e67d4dd8944d6997589a5ef,

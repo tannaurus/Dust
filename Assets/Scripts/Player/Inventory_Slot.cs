@@ -30,6 +30,7 @@ public class Inventory_Slot : MonoBehaviour
 
 	public void Set(Item item) {
 		Debug.Log("Set!");
+		populated = true;
 		itemId = item.id;
 		itemTitle = item.title;
 		itemIcon = item.icon;

@@ -35,6 +35,17 @@ public class Player_Inventory : MonoBehaviour
 		if (!CanPickUp()) {
 			return;
 		}
+
+		// if (!IsInventoryFull(QuickInventory, QUICK_INVENTORY_SIZE)) {
+		//	item.location = ItemLocation.QuickInv;
+		// 	QuickInventory = GetNewInventoryWithPlacedItem(QuickInventory, item);
+		// 	return;
+		// }
+		if (!IsInventoryFull(FullInventory, FULL_INVENTORY_SIZE)) {
+			item.location = ItemLocation.FullInv;
+			FullInventory = GetNewInventoryWithPlacedItem(FullInventory, item);
+			return;
+		}
 		Debug.Log("Picking up...");
 	}
 
@@ -81,7 +92,9 @@ public class Player_Inventory : MonoBehaviour
 		for (int i = 0; i < FullInventory.Length; i++) {
 			Item fItem = FullInventory[i];
 			if (!fItem) {
-				FullInventorySlots[i].Remove();
+				if (FullInventorySlots[i].Populated()) {
+					FullInventorySlots[i].Remove();
+				}
 				return;
 			}
 
@@ -107,14 +120,15 @@ public class Player_Inventory : MonoBehaviour
 	// TO-DO
 	// * Update method to support optional specified index
 	Item[] GetNewInventoryWithPlacedItem(Item[] inventory, Item item) {
+		Item[] dupInventory = inventory;
 		bool placed = false;
-		for (int i = 0; placed || i < inventory.Length; i++) {
-			if (!inventory[i]) {
-				inventory[i] = item;
+		for (int i = 0; !placed && i < dupInventory.Length; i++) {
+			if (!dupInventory[i]) {
+				dupInventory[i] = item;
 				placed = true;
 			}
 		}
-		return inventory;
+		return dupInventory;
 	}
 
 	bool IsInventoryFull(Item[] inventory, int maxLength) {
