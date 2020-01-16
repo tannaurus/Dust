@@ -9,7 +9,6 @@ public class Item_Float : MonoBehaviour
 	public float floatSpeed = 1.2f;
 	private Item item;
 	private float holdHeight;
-	private ItemLocation lastKnownLocation;
 
 	void Start()
 	{
@@ -21,27 +20,18 @@ public class Item_Float : MonoBehaviour
 
 	void Update()
 	{
-		if (
-			lastKnownLocation != ItemLocation.None &&
-			item.location == ItemLocation.None
-		) {
-			InitFloat();
-		}
 		if (item.location == ItemLocation.None) {
 			Float();
 		}
-
-		// Always do last.
-		UpdateLastKnownLocation();
 	}
 
 	// Updaters
 	void Init() {
 		item = GetComponent<Item>();
-		lastKnownLocation = item.location;
 	}
 
-	void InitFloat() {
+	public void InitFloat() {
+		Debug.Log("Init float!");
 		Vector3 itemPos = transform.position;
 		itemPos.y = Terrain.activeTerrain.SampleHeight(transform.position);
 		itemPos.y += floatHeight;
@@ -54,11 +44,5 @@ public class Item_Float : MonoBehaviour
 		Vector3 pos = transform.position;
 		float newY = (Mathf.Sin(Time.time * floatSpeed) + holdHeight) * floatOffset;
 		transform.position = new Vector3(pos.x, newY, pos.z);
-	}
-
-	void UpdateLastKnownLocation() {
-		if (lastKnownLocation != item.location) {
-			lastKnownLocation = item.location;
-		}
 	}
 }

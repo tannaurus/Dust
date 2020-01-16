@@ -19,12 +19,15 @@ public class Item : MonoBehaviour
 	private Vector3 dropDirection;
 	private Vector3 dropStart;
 
+	private Item_Float itemFloat;
+
 	public void Awake() {
 		gameObject.tag = ITEM_TAG;
 	}
 
 	public void Start() {
 		lastDropped = Time.time;
+		itemFloat = GetComponent<Item_Float>();
 	}
 
 	public void Update() {
@@ -44,6 +47,7 @@ public class Item : MonoBehaviour
 	public void StartDropForward(Vector3 direction) {
 		dropDirection = direction;
 		dropStart = transform.position;
+		itemFloat.InitFloat();
 		dropping = true;
 	}
 
