@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public enum ItemLocation {
 	InHand,
@@ -16,6 +17,7 @@ public class Player_Inventory : MonoBehaviour
 	public Transform FullInventorySlotsParent;
 	public int QUICK_INVENTORY_SIZE = 9;
 	public int FULL_INVENTORY_SIZE = 16;
+	public int TIME_UNTIL_PICKUP_AGAIN = 2;
 	private Item[] QuickInventory;
 	private Item[] FullInventory;
 	private Inventory_Slot[] FullInventorySlots;
@@ -35,7 +37,11 @@ public class Player_Inventory : MonoBehaviour
 		if (!CanPickUp()) {
 			return;
 		}
-
+		Debug.Log("Time between last drop");
+		float timeElapsedSinceDrop = Time.time - item.lastDropped;
+		if (timeElapsedSinceDrop < 3f) {
+			return;
+		}
 		item.gameObject.SetActive(false);
 		// if (!IsInventoryFull(QuickInventory, QUICK_INVENTORY_SIZE)) {
 		//	item.location = ItemLocation.QuickInv;
@@ -52,7 +58,7 @@ public class Player_Inventory : MonoBehaviour
 
 	// External Helpers
 	public bool CanPickUp() {
-		bool qInvFull = IsInventoryFull(QuickInventory, QUICK_INVENTORY_SIZE);
+		bool qInvFull = IsInventoryFull (QuickInventory, QUICK_INVENTORY_SIZE);
 		bool fInvFull = IsInventoryFull(FullInventory, FULL_INVENTORY_SIZE);
 		return !qInvFull || !fInvFull;
 	}
@@ -61,8 +67,14 @@ public class Player_Inventory : MonoBehaviour
 	void Init() {
 		QuickInventory = new Item[QUICK_INVENTORY_SIZE];
 		FullInventory = new Item[FULL_INVENTORY_SIZE];
-		FullInventorySlots = FullInventorySlotsParent.GetComponentsInChildren<Inventory_Slot>();
+		SetInventorySlots();
 	}
+
+	void SetInventorySlots() {
+		FullInventorySlots = FullInventorySlotsParent.GetComponentsInChildren<Inventory_Slot>();
+		AddCloseButtonListeners();
+	}
+
 	void UpdateInventories() {
 		UpdateQuickInventory();
 		UpdateFullInventory();
@@ -112,14 +124,32 @@ public class Player_Inventory : MonoBehaviour
 				FullInventorySlots[i].Populated() &&
 				FullInventorySlots[i].itemId != fItem.id
 			) {
-				FullInventorySlots[i].Set(fItem);
+				FullInventorySlots[i].Set(fItem, i);
 			} else if (!FullInventorySlots[i].Populated()) {
-				FullInventorySlots[i].Set(fItem);
+				FullInventorySlots[i].Set(fItem, i);
 			}
 		}
 	}
 
+	void AddCloseButtonListeners() {
+			for (int i = 0; i < FullInventorySlots.Length; i++) {
+				FullInventorySlots[i].slotCloseButton.onClick.AddListener(RemoveItemFromFullInventory(i));
+			}
+	}
+
 	// Internal Helpers
+	// delegate void Del(); 
+	UnityAction RemoveItemFromFullInventory(int index) {
+		return () => {
+			FullInventory[index].gameObject.SetActive(true);
+			FullInventory[index].lastDropped = Time.time;
+			FullInventory[index].location = ItemLocation.None;
+			FullInventory[index].transform.position = transform.position;
+			FullInventory[index].StartDropForward(transform.forward);
+			FullInventory[index] = null;
+		};
+	}
+
 	// TO-DO
 	// * Update method to support optional specified index
 	Item[] GetNewInventoryWithPlacedItem(Item[] inventory, Item item) {

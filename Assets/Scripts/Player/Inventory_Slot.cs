@@ -9,10 +9,15 @@ public class Inventory_Slot : MonoBehaviour
 	public int itemId;
 	public string itemTitle;
 	public bool populated;
+	public int index;
 
 	public Button slotButton;
 	public Image slotImage;
 	public Button slotCloseButton;
+
+	public void Start() {
+		// slotCloseButton.onClick.AddListener(Remove);
+	}
 
 	// Getters
 	public bool Populated() {
@@ -31,9 +36,10 @@ public class Inventory_Slot : MonoBehaviour
 		slotImage.sprite = null;
 		slotImage.enabled = false;
 		slotCloseButton.interactable = false;
+		index = 0;
 	}
 
-	public void Set(Item item) {
+	public void Set(Item item, int inventoryIndex) {
 		if (populated) {
 			return;
 		}
@@ -44,5 +50,6 @@ public class Inventory_Slot : MonoBehaviour
 		slotImage.sprite = item.icon;
 		slotImage.enabled = true;
 		slotCloseButton.interactable = true;
+		index = inventoryIndex;
 	}
 }
