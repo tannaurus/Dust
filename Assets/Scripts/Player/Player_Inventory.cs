@@ -20,7 +20,7 @@ public class Player_Inventory : MonoBehaviour
 	public int TIME_UNTIL_PICKUP_AGAIN = 2;
 	private Item[] QuickInventory;
 	private Item[] FullInventory;
-	private Inventory_Slot[] FullInventorySlots;
+	public Inventory_Slot[] FullInventorySlots;
 
 	void Start()
 	{
@@ -105,9 +105,6 @@ public class Player_Inventory : MonoBehaviour
 		for (int i = 0; i < FullInventory.Length; i++) {
 			Item fItem = FullInventory[i];
 			if (!fItem) {
-				if (FullInventorySlots[i].Populated()) {
-					FullInventorySlots[i].Remove();
-				}
 				return;
 			}
 
@@ -141,11 +138,13 @@ public class Player_Inventory : MonoBehaviour
 	// delegate void Del(); 
 	UnityAction RemoveItemFromFullInventory(int index) {
 		return () => {
+			Debug.Log(index);
 			FullInventory[index].gameObject.SetActive(true);
 			FullInventory[index].lastDropped = Time.time;
 			FullInventory[index].location = ItemLocation.None;
 			FullInventory[index].transform.position = transform.position;
 			FullInventory[index].StartDropForward(transform.forward);
+			FullInventorySlots[index].Remove();
 			FullInventory[index] = null;
 		};
 	}

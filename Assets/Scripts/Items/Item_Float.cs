@@ -42,7 +42,7 @@ public class Item_Float : MonoBehaviour
 	
 	void Float() {
 		Vector3 pos = transform.position;
-		float newY = (Mathf.Sin(Time.time * floatSpeed) + holdHeight) * floatOffset;
-		transform.position = new Vector3(pos.x, newY, pos.z);
+		pos.y = (Mathf.Sin(Time.time * floatSpeed) + holdHeight) * floatOffset;
+		transform.position = pos;
 	}
 }
