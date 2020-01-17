@@ -5,7 +5,7 @@ using UnityEngine;
 public class Inventory_Input_Listener : MonoBehaviour
 {
 	public GameObject inventory;
-	private bool isInventoryOpen = false;
+	public bool inventoryOpen = false;
 	void Update()
 	{
 		ToggleInventory();		
@@ -14,8 +14,8 @@ public class Inventory_Input_Listener : MonoBehaviour
 	// Listeners
 	void ToggleInventory() {
 		if (Input.GetKeyDown(KeyCode.E)) {
-			isInventoryOpen = !isInventoryOpen;
-			inventory.SetActive(isInventoryOpen);
+			inventoryOpen = !inventoryOpen;
+			inventory.SetActive(inventoryOpen);
 		}
 	}
 }

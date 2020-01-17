@@ -104,7 +104,6 @@ public class Player_Inventory : MonoBehaviour
 
 	// Does not support full inventories. Ensure there is space in the inventory
 	// before invoking to prevent strange behavior.
-
 	NewInventoryInfo GetNewInventoryWithPlacedItem(Item[] inventory, Item item) {
 		Item[] newInventory = inventory;
 		bool placed = false;

@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Item_Float : MonoBehaviour
 {
-	public float floatHeight = 2f;
-	public float floatOffset = 2f;
-	public float floatSpeed = 1.2f;
+	private float floatHeight = 1f;
+	private float floatOffset = 0.2f;
+	private float floatSpeed = 2f;
 	private Item item;
 	private float holdHeight;
 
@@ -31,10 +31,9 @@ public class Item_Float : MonoBehaviour
 	}
 
 	public void InitFloat() {
-		Debug.Log("Init float!");
 		Vector3 itemPos = transform.position;
 		itemPos.y = Terrain.activeTerrain.SampleHeight(transform.position);
-		itemPos.y += floatHeight;
+		itemPos.y = itemPos.y + floatHeight;
 		// Keep track of this offset for the float logic
 		holdHeight = itemPos.y;
 		transform.position = itemPos;
@@ -42,7 +41,7 @@ public class Item_Float : MonoBehaviour
 	
 	void Float() {
 		Vector3 pos = transform.position;
-		pos.y = (Mathf.Sin(Time.time * floatSpeed) + holdHeight) * floatOffset;
+		pos.y = (Mathf.Sin(Time.time * floatSpeed)) * floatOffset + holdHeight;
 		transform.position = pos;
 	}
 }
