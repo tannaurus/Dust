@@ -29,7 +29,6 @@ public class Inventory_Slot : MonoBehaviour
 		if (!populated) {
 			return;
 		}
-		Debug.Log("Removed!");
 		populated = false;
 		itemId = 0;
 		itemTitle = null;
@@ -43,7 +42,6 @@ public class Inventory_Slot : MonoBehaviour
 		if (populated) {
 			return;
 		}
-		Debug.Log("Set!");
 		populated = true;
 		itemId = item.id;
 		itemTitle = item.title;
