@@ -9,17 +9,23 @@ public class Campfire : MonoBehaviour
 	public float health = 10f;
 	public ParticleSystem particleSystem;
 
-	private float maxHealth = 10f;
-	private Collision lastCol;
+	private float maxHealth;
+	private Collider lastCol;
 	private bool beingDamaged = false;
 	private bool dead = false;
+	private Ambient_Damage ambientDamage;
+
+	void Start() {
+		ambientDamage = GetComponent<Ambient_Damage>();
+		maxHealth = health;
+	}
 
 	void Update()
 	{
 		if (beingDamaged) {
-			health -= Time.deltaTime + GetDamageMultiplier();
+			health -= GetDamageMultiplier() * Time.deltaTime;
 		} else if (health != 0f) {
-			health += Time.deltaTime;
+			health += 1 * Time.deltaTime;
 		}
 
 		health = Mathf.Clamp(health, 0f, maxHealth);
@@ -28,25 +34,30 @@ public class Campfire : MonoBehaviour
 		}
 	}
 
-	void OnCollisionEnter(Collision col) {
+	void OnTriggerEnter(Collider col) {
+		if (col.gameObject.tag == "Terrain" || col.gameObject.tag == "Campfire_Log") {
+			return;
+		}
 		lastCol = col;
 		beingDamaged = true;
 	}
 
-	void OnCollisionExit(Collision col) {
+	void OnTriggerExit(Collider col) {
 		beingDamaged = false;
 	}
 
 	void OnDeath() {
+		Debug.Log("Logs died!");
 		ReleaseLogs();
 		DiscardObjects();
 		TurnOffParticles();
 		dead = true;
+		ambientDamage.stopAmbientDamage = true;
 	}
 
 	// Helpers
 	float GetDamageMultiplier() {
-		return lastCol.rigidbody.mass;
+		return lastCol.GetComponent<Rigidbody>().mass;
 	}
 
 	void ReleaseLogs() {
