@@ -20,10 +20,8 @@ public class Ambient_Damage : MonoBehaviour
 	{
 		healthSystem = col.gameObject.GetComponent<HealthSystem>();
 		if (!healthSystem) {
-			Debug.Log("No health system!");
 			return;
 		}
-		Debug.Log("Give damage!");
 		giveDamage = true;
 	}
 

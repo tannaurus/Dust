@@ -20,7 +20,6 @@ public class HealthSystem : MonoBehaviour
 		public void ApplyDamage(float damage) {
 			health -= damage;
 			health = Mathf.Clamp(health, 0f, maxHealth);
-			Debug.Log(health);
 		}
 
 		void OnDeath() {
