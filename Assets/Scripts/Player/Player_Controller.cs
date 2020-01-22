@@ -52,7 +52,11 @@ public class Player_Controller : MonoBehaviour
 		Vector3 displacement = transform.position - modifiedPosition;
 		if (IsGrounded() & Input.GetKeyDown(KeyCode.Space)) {
 			rigidbody.velocity += (displacement + Vector3.up) * jumpForce;
-		} 
+		}
+
+		if (modifiedPosition.y < Terrain.activeTerrain.SampleHeight(modifiedPosition)) {
+			modifiedPosition.y = Terrain.activeTerrain.SampleHeight(modifiedPosition);
+		}
 		
 		transform.position = Vector3.Lerp(transform.position, modifiedPosition, speedMultiplier * Time.deltaTime);
 	}
