@@ -27,12 +27,14 @@ struct NewInventoryInfo {
 public class Player_Inventory : MonoBehaviour
 {
 	public Transform FullInventorySlotsParent;
+	public Transform QuickInventorySlotsParent;
 	public int QUICK_INVENTORY_SIZE = 9;
 	public int FULL_INVENTORY_SIZE = 16;
 	public int TIME_UNTIL_PICKUP_AGAIN = 2;
 	private Item[] QuickInventory;
 	private Item[] FullInventory;
-	public Inventory_Slot[] FullInventorySlots;
+	private Inventory_Slot[] FullInventorySlots;
+	private Inventory_Slot[] QuickInventorySlots;
 
 	void Start()
 	{
@@ -49,11 +51,13 @@ public class Player_Inventory : MonoBehaviour
 			return;
 		}
 		item.gameObject.SetActive(false);
-		// if (!IsInventoryFull(QuickInventory, QUICK_INVENTORY_SIZE)) {
-		//	item.location = ItemLocation.QuickInv;
-		// 	QuickInventory = GetNewInventoryWithPlacedItem(QuickInventory, item);
-		// 	return;
-		// }
+		if (!IsInventoryFull(QuickInventory, QUICK_INVENTORY_SIZE)) {
+			item.location = ItemLocation.QuickInv;
+			NewInventoryInfo inventoryInfo = GetNewInventoryWithPlacedItem(QuickInventory, item);
+			QuickInventory = inventoryInfo.inventory;
+			QuickInventorySlots[inventoryInfo.placedIndex].Set(item, inventoryInfo.placedIndex);
+			return;
+		}
 		if (!IsInventoryFull(FullInventory, FULL_INVENTORY_SIZE)) {
 			item.location = ItemLocation.FullInv;
 			NewInventoryInfo inventoryInfo = GetNewInventoryWithPlacedItem(FullInventory, item);
@@ -65,7 +69,7 @@ public class Player_Inventory : MonoBehaviour
 
 	// External Helpers
 	public bool CanPickUp() {
-		bool qInvFull = IsInventoryFull (QuickInventory, QUICK_INVENTORY_SIZE);
+		bool qInvFull = IsInventoryFull(QuickInventory, QUICK_INVENTORY_SIZE);
 		bool fInvFull = IsInventoryFull(FullInventory, FULL_INVENTORY_SIZE);
 		return !qInvFull || !fInvFull;
 	}
@@ -79,6 +83,7 @@ public class Player_Inventory : MonoBehaviour
 
 	void SetInventorySlots() {
 		FullInventorySlots = FullInventorySlotsParent.GetComponentsInChildren<Inventory_Slot>();
+		QuickInventorySlots = QuickInventorySlotsParent.GetComponentsInChildren<Inventory_Slot>();
 		AddCloseButtonListeners();
 	}
 
@@ -89,7 +94,6 @@ public class Player_Inventory : MonoBehaviour
 	}
 
 	// Internal Helpers
-	// delegate void Del(); 
 	UnityAction RemoveItemFromFullInventory(int index) {
 		return () => {
 			FullInventory[index].gameObject.SetActive(true);
