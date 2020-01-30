@@ -29,7 +29,7 @@ public class Player_Camera : MonoBehaviour
 
 		transform.Rotate(0, X, 0);
 
-		if (Camera.main.transform.eulerAngles.x + (-Y) < 80 & Camera.main.transform.eulerAngles.x + (-Y) < 280 & Camera.main.transform.eulerAngles.x + (-Y) > 10) {
+		if (Camera.main.transform.eulerAngles.x + (-Y) < 80 & Camera.main.transform.eulerAngles.x + (-Y) < 280 & Camera.main.transform.eulerAngles.x + (-Y) > 0) {
 				Camera.main.transform.RotateAround(transform.position, Camera.main.transform.right, -Y);
 		}
 	}
