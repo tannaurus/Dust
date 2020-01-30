@@ -1,0 +1,1603 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a3bdb2cd68f901469e7cc149151eb49, type: 3}
+  m_Name: FAE_PostProcessingProfile_v1
+  m_EditorClassIdentifier: 
+  debugViews:
+    m_Enabled: 1
+    m_Settings:
+      mode: 0
+      depth:
+        scale: 0.027
+      motionVectors:
+        sourceOpacity: 1
+        motionImageOpacity: 0
+        motionImageAmplitude: 16
+        motionVectorsOpacity: 1
+        motionVectorsResolution: 24
+        motionVectorsAmplitude: 64
+  fog:
+    m_Enabled: 1
+    m_Settings:
+      excludeSkybox: 1
+  antialiasing:
+    m_Enabled: 1
+    m_Settings:
+      method: 0
+      fxaaSettings:
+        preset: 2
+      taaSettings:
+        jitterSpread: 0.1
+        sharpen: 0.3
+        stationaryBlending: 0.95
+        motionBlending: 0.85
+  ambientOcclusion:
+    m_Enabled: 0
+    m_Settings:
+      intensity: 1
+      radius: 0.1
+      sampleCount: 10
+      downsampling: 0
+      forceForwardCompatibility: 0
+      ambientOnly: 0
+      highPrecision: 1
+  screenSpaceReflection:
+    m_Enabled: 0
+    m_Settings:
+      reflection:
+        blendType: 0
+        reflectionQuality: 2
+        maxDistance: 100
+        iterationCount: 256
+        stepSize: 3
+        widthModifier: 0.5
+        reflectionBlur: 1
+        reflectBackfaces: 0
+      intensity:
+        reflectionMultiplier: 1
+        fadeDistance: 100
+        fresnelFade: 1
+        fresnelFadePower: 1
+      screenEdgeMask:
+        intensity: 0.03
+  depthOfField:
+    m_Enabled: 0
+    m_Settings:
+      focusDistance: 8.52
+      aperture: 0.6
+      focalLength: 42
+      useCameraFov: 1
+      kernelSize: 0
+  motionBlur:
+    m_Enabled: 1
+    m_Settings:
+      shutterAngle: 360
+      sampleCount: 10
+      frameBlending: 0
+  eyeAdaptation:
+    m_Enabled: 1
+    m_Settings:
+      lowPercent: 45
+      highPercent: 95
+      minLuminance: 0.1
+      maxLuminance: 1
+      keyValue: 1
+      dynamicKeyValue: 0
+      adaptationType: 0
+      speedUp: 2
+      speedDown: 1
+      logMin: -8
+      logMax: 4
+  bloom:
+    m_Enabled: 1
+    m_Settings:
+      bloom:
+        intensity: 1
+        threshold: 3
+        softKnee: 1
+        radius: 3
+        antiFlicker: 0
+      lensDirt: {texture: {fileID: 0}, intensity: 1}
+  colorGrading:
+    m_Enabled: 1
+    m_Settings:
+      tonemapping:
+        tonemapper: 2
+        neutralBlackIn: 0.02
+        neutralWhiteIn: 10
+        neutralBlackOut: 0
+        neutralWhiteOut: 10
+        neutralWhiteLevel: 5.3
+        neutralWhiteClip: 10
+      basic:
+        postExposure: 0
+        temperature: 0
+        tint: 0
+        hueShift: 0
+        saturation: 1
+        contrast: 1
+      channelMixer:
+        red: {x: 1, y: 0, z: 0}
+        green: {x: 0, y: 1, z: 0}
+        blue: {x: 0, y: 0, z: 1}
+        currentEditingChannel: 0
+      colorWheels:
+        mode: 1
+        log:
+          slope:
+            r: 1
+            g: 1
+            b: 1
+            a: 0
+          power:
+            r: 1
+            g: 1
+            b: 1
+            a: 0
+          offset:
+            r: 1
+            g: 1
+            b: 1
+            a: 0
+        linear:
+          lift:
+            r: 1
+            g: 1
+            b: 1
+            a: 0
+          gamma:
+            r: 1
+            g: 1
+            b: 1
+            a: 0
+          gain:
+            r: 1
+            g: 1
+            b: 1
+            a: 0
+      curves:
+        master:
+          curve:
+            m_Curve:
+            - time: 0
+              value: 0
+              inSlope: 1
+              outSlope: 1
+              tangentMode: 0
+            - time: 1
+              value: 1
+              inSlope: 1
+              outSlope: 1
+              tangentMode: 0
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 0
+          m_Loop: 0
+          m_ZeroValue: 0
+          m_Range: 1
+          m_InternalLoopingCurve:
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+        red:
+          curve:
+            m_Curve:
+            - time: 0
+              value: 0
+              inSlope: 1
+              outSlope: 1
+              tangentMode: 0
+            - time: 1
+              value: 1
+              inSlope: 1
+              outSlope: 1
+              tangentMode: 0
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_Loop: 0
+          m_ZeroValue: 0
+          m_Range: 1
+          m_InternalLoopingCurve:
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+        green:
+          curve:
+            m_Curve:
+            - time: 0
+              value: 0
+              inSlope: 1
+              outSlope: 1
+              tangentMode: 0
+            - time: 1
+              value: 1
+              inSlope: 1
+              outSlope: 1
+              tangentMode: 0
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_Loop: 0
+          m_ZeroValue: 0
+          m_Range: 1
+          m_InternalLoopingCurve:
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+        blue:
+          curve:
+            m_Curve:
+            - time: 0
+              value: 0
+              inSlope: 1
+              outSlope: 1
+              tangentMode: 0
+            - time: 1
+              value: 1
+              inSlope: 1
+              outSlope: 1
+              tangentMode: 0
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_Loop: 0
+          m_ZeroValue: 0
+          m_Range: 1
+          m_InternalLoopingCurve:
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+        hueVShue:
+          curve:
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_Loop: 1
+          m_ZeroValue: 0.5
+          m_Range: 1
+          m_InternalLoopingCurve:
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+        hueVSsat:
+          curve:
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_Loop: 1
+          m_ZeroValue: 0.5
+          m_Range: 1
+          m_InternalLoopingCurve:
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+        satVSsat:
+          curve:
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_Loop: 0
+          m_ZeroValue: 0.5
+          m_Range: 1
+          m_InternalLoopingCurve:
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+        lumVSsat:
+          curve:
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_Loop: 0
+          m_ZeroValue: 0.5
+          m_Range: 1
+          m_InternalLoopingCurve:
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+        e_CurrentEditingCurve: 0
+        e_CurveY: 1
+        e_CurveR: 0
+        e_CurveG: 0
+        e_CurveB: 0
+    <isDirty>k__BackingField: 0
+    <bakedLut>k__BackingField: {fileID: 0}
+  userLut:
+    m_Enabled: 1
+    m_Settings: {lut: {fileID: 2800000, guid: 8c0cdd4f39befe14b87bf44dad8b96bc, type: 3},
+      contribution: 1}
+  chromaticAberration:
+    m_Enabled: 0
+    m_Settings: {spectralTexture: {fileID: 0}, intensity: 0.1}
+  grain:
+    m_Enabled: 0
+    m_Settings:
+      colored: 1
+      intensity: 0.175
+      size: 1
+      luminanceContribution: 0.8
+  vignette:
+    m_Enabled: 1
+    m_Settings:
+      mode: 0
+      color:
+        r: 0
+        g: 0
+        b: 0
+        a: 1
+      center: {x: 0.5, y: 0.5}
+      intensity: 0.4
+      smoothness: 0.2
+      roundness: 1
+      mask: {fileID: 0}
+      opacity: 1
+      rounded: 0
+  dithering:
+    m_Enabled: 0
+    m_Settings: monitors
+  : currentMonitorID
+  1: refreshOnPlay
+  1: histogramMode
+  3: waveformExposure
+  0.17833333: waveformY
+  0: waveformR
+  1: waveformG
+  1: waveformB
+  1: paradeExposure
+  0.12: vectorscopeExposure
+  0.12: vectorscopeShowBackground
+  1: 'onoBehaviourm_ObjectHideFlags0m_CorrespondingSourceObjectfileID0m_PrefabInstancefileID0m_PrefabAssetfileID0m_GameObjectfileID0m_Enabled1m_EditorHideFlags0m_ScriptfileID11500000guid8a3bdb2cd68f901469e7cc149151eb49type3m_NameFAE_PostProcessingProfile_v1m_EditorClassIdentifierdebugViewsm_Enabled1m_Settingsmode0depthscale0.027motionVectorssourceOpacity1motionImageOpacity0motionImageAmplitude16motionVectorsOpacity1motionVectorsResolution24motionVectorsAmplitude64fogm_Enabled1m_SettingsexcludeSkybox1antialiasingm_Enabled1m_Settingsmethod0fxaaSettingspreset2taaSettingsjitterSpread0.1sharpen0.3stationaryBlending0.95motionBlending0.85ambientOcclusionm_Enabled0m_Settingsintensity1radius0.1sampleCount10downsampling0forceForwardCompatibility0ambientOnly0highPrecision1screenSpaceReflectionm_Enabled0m_SettingsreflectionblendType0reflectionQuality2maxDistance100iterationCount256stepSize3widthModifier0.5reflectionBlur1reflectBackfaces0intensityreflectionMultiplier1fadeDistance100fresnelFade1fresnelFadePower1screenEdgeMaskintensity0.03depthOfFieldm_Enabled0m_SettingsfocusDistance8.52aperture0.6focalLength42useCameraFov1kernelSize0motionBlurm_Enabled1m_SettingsshutterAngle360sampleCount10frameBlending0eyeAdaptationm_Enabled1m_SettingslowPercent45highPercent95minLuminance0.1maxLuminance1keyValue1dynamicKeyValue0adaptationType0speedUp2speedDown1logMin-8logMax4bloomm_Enabled1m_Settingsbloomintensity1threshold3softKnee1radius3antiFlicker0lensDirttexturefileID0intensity1colorGradingm_Enabled1m_Settingstonemappingtonemapper2neutralBlackIn0.02neutralWhiteIn10neutralBlackOut0neutralWhiteOut10neutralWhiteLevel5.3neutralWhiteClip10basicpostExposure0temperature0tint0hueShift0saturation1contrast1channelMixerredx1y0z0greenx0y1z0bluex0y0z1currentEditingChannel0colorWheelsmode1logsloper1g1b1a0powerr1g1b1a0offsetr1g1b1a0linearliftr1g1b1a0gammar1g1b1a0gainr1g1b1a0curvesmastercurvem_Curvetime0value0inSlope1outSlope1tangentMode0time1value1inSlope1outSlope1tangentMode0m_PreInfinity2m_PostInfinity2m_RotationOrder0m_Loop0m_ZeroValue0m_Range1m_InternalLoopingCurvem_Curvem_PreInfinity2m_PostInfinity2m_RotationOrder4redcurvem_Curvetime0value0inSlope1outSlope1tangentMode0time1value1inSlope1outSlope1tangentMode0m_PreInfinity2m_PostInfinity2m_RotationOrder4m_Loop0m_ZeroValue0m_Range1m_InternalLoopingCurvem_Curvem_PreInfinity2m_PostInfinity2m_RotationOrder4greencurvem_Curvetime0value0inSlope1outSlope1tangentMode0time1value1inSlope1outSlope1tangentMode0m_PreInfinity2m_PostInfinity2m_RotationOrder4m_Loop0m_ZeroValue0m_Range1m_InternalLoopingCurvem_Curvem_PreInfinity2m_PostInfinity2m_RotationOrder4bluecurvem_Curvetime0value0inSlope1outSlope1tangentMode0time1value1inSlope1outSlope1tangentMode0m_PreInfinity2m_PostInfinity2m_RotationOrder4m_Loop0m_ZeroValue0m_Range1m_InternalLoopingCurvem_Curvem_PreInfinity2m_PostInfinity2m_RotationOrder4hueVShuecurvem_Curvem_PreInfinity2m_PostInfinity2m_RotationOrder4m_Loop1m_ZeroValue0.5m_Range1m_InternalLoopingCurvem_Curvem_PreInfinity2m_PostInfinity2m_RotationOrder4hueVSsatcurvem_Curvem_PreInfinity2m_PostInfinity2m_RotationOrder4m_Loop1m_ZeroValue0.5m_Range1m_InternalLoopingCurvem_Curvem_PreInfinity2m_PostInfinity2m_RotationOrder4satVSsatcurvem_Curvem_PreInfinity2m_PostInfinity2m_RotationOrder4m_Loop0m_ZeroValue0.5m_Range1m_InternalLoopingCurvem_Curvem_PreInfinity2m_PostInfinity2m_RotationOrder4lumVSsatcurvem_Curvem_PreInfinity2m_PostInfinity2m_RotationOrder4m_Loop0m_ZeroValue0.5m_Range1m_InternalLoopingCurvem_Curvem_PreInfinity2m_PostInfinity2m_RotationOrder4e_CurrentEditingCurve0e_CurveY1e_CurveR0e_CurveG0e_CurveB0<isDirty>k__BackingField0<bakedLut>k__BackingFieldfileID0userLutm_Enabled1m_SettingslutfileID2800000guid8c0cdd4f39befe14b87bf44dad8b96bctype3contribution1chromaticAberrationm_Enabled0m_SettingsspectralTexturefileID0intensity0.1grainm_Enabled0m_Settingscolored1intensity0.175size1luminanceContribution0.8vignettem_Enabled1m_Settingsmode0colorr0g0b0a1centerx0.5y0.5intensity0.4smoothness0.2roundness1maskfileID0opacity1rounded0ditheringm_Enabled0m_SettingsmonitorscurrentMonitorID1refreshOnPlay1histogramMode3waveformExposure0.17833333waveformY0waveformR1waveformG1waveformB1paradeExposure0.12vectorscopeExposure0.12vectorscopeShowBackground1 dc4753f55ef5f3f†bú''   `K  0000  ¿$  d901             ¿$  dd01                                ‡	   0502    :          @          A        ‡   3702    Q          W          X        ‡   3f02    e          k          l        ‡    702    x          ~             	       à          â          ö          õ        ‡!   5702    £          ©          ±          µ   
+           ’          Ÿ          ⁄          ‡          ¸                      
+
+         ¿?   df02      	       &         ''  
+
+         ¿?   e702    1         5         6       ¿1   ef02    ;         @         E       ¿?   f702    R         _         `         r         s         á         â         ù         û         µ         ∑         Õ         œ       ¿G   eb03    “  	       €         ‹  
+
+         ¿G   f303    Ê         Û         Ù       ¿]   fb03       	       	         
+
+      
+
+         ¿]   0304                             ¿S   0b04    ''         -         .       ¿]   1304    9         E         H         O         R         d         h         v         z       ¿q   2704    ä  	       ì         î  
+
+         ¿q   2f04    û  	       ß         ®         Æ         ±         º         æ                   À         ‰         Â                  Ò         ˛         ˇ       ¿ó   4f04      	                  
+
+         ¿ó   5704    (  
+
+         ¿â   5b04    2  	       ;         <         M         N         Y         \         j         m         u         v         É         Ü         î         ï         •         ¶  	     ¿ì   f505    Ø         √         ƒ         –         ”         ﬁ         ﬂ         Ô                ¿ó          ˛  	                       ¿ß   Û         	       
+             !  
+
+         ¿ß   scal    +         8         <         D         G         R         T         `         a  
+
+           k         l  
+
+         ¿≥   
+
+           v  	                Ä  
+
+         ¿≥          ä         ñ         ô         §         ¶         ≥         ¥       ¿œ   ?       ¡  	                 À  
+
+         ¿œ   `       ’  
+
+           ﬂ         ·         Ï         Ó         ˙         ˝         	         
+
+                               "         #         1         2         9         :  	       C         D         J         L         R         S       ¿È   city    X  	       a         b  
+
+         ¿È   tion    l       ¿·   nVec    q  	       z         {  	       Ñ         Ö         ç         é         î         ï         †         °       ‡È           ©       ‡Á   
+
+           ∞         ∂         ∑  	       ¿         ¡       ¿∑  #       Õ  	       ÷         ◊  
+
+         ¿±  2       ·       ¿ˇ   ?       Ï  
+
+           ˆ         ˜                  	                           (         )         8         :         K         N         ^         `       ¿  Y      e         q         r         }         ~         Ç         É         ã         å  
+
+           ñ         ó         ü         †       ¿)  Æ      ¨       ‡  ∏      Ø         ∞         ±         ≤         ≥         ¥         µ       ‡  Í      ∫         ª         º         Ω         æ         ø         ¿       ‡''        ƒ         ≈         ∆         «         »         …                   ﬂ         ‡       ¿m  E      Î         Ô                ¿M  Y      Û       ¿9  ^      ¯         ˘         ˙         ˚         ¸         ˝         ˛         ˇ                 ¿C  é                                          	         
+
+                                      ¿M  æ                                                                                     ¿m  ˙      !       ¿Y  
+
+          %         &         ''         (         )         *         +         ,         -       ¿c  V      2         3         4         5         6         7         8         9         :       ¿m  à      >         ?         @         A         B         C         D         E         F       ¿±  §      L       ¿°  ¶      R       ¿ë  ´      W       Äã  ≠    ¿Ä  Æ      ^         b         c         h         i         p         q         y         z         Ö       ¿ã  ttin    Ü         ä         ã         ê         ë         ò         ô         °         ¢         ≠         Æ         ª         º                   À         ⁄         €         ·         ‚         Ì         Ó         ı         ˆ       ¿°  rpen            Äõ  g0.9             
+             !         /         0         ?         @       ¿”  ampl    C       ¿√  atib    H       ÄΩ  ghPr  ¿≤  scre    O         S         T         Y         Z         a         b         j         k         v       ¿Ω  0.5r    w         {         |         Å         Ç         â         ä         í         ì         û         ü         ¨         ≠         ª         º         À         Ã         “         ”         ﬁ         ﬂ         Ê         Á       ¿”  t10f    ˝        ÄÕ  tati    	         	         	         
+    	         !	         0	         1	       ¿  eyVa    6	       ¿ı  peed    ;	       ÄÔ  8log  ¿‰  mm_E    B	         F	         G	         L	         M	         T	         U	         ]	         ^	         i	       ¿Ô  m_Se    j	         n	         o	         t	         u	         |	         }	         Ö	         Ü	         ë	         í	         ü	         †	         Æ	         Ø	         æ	         ø	         ≈	         ∆	         —	         “	         Ÿ	         ⁄	       ¿  er1g    	        Äˇ  fset    ˜	         
+
+             
+
+             
+
+             
+
+             #
+
+             $
+
+           ¿7  ceCo    (
+
+           ¿''  em_E    -
+
+           Ä!  e0co  ¿  0a1c    4
+
+             8
+
+             9
+
+             >
+
+             ?
+
+             F
+
+             G
+
+             O
+
+             P
+
+             [
+
+           ¿!  orID    \
+
+             `
+
+             a
+
+             f
+
+             g
+
+             n
+
+             o
+
+             w
+
+             x
+
+             É
+
+             Ñ
+
+             ë
+
+             í
+
+             †
+
+             °
+
+             ∞
+
+             ±
+
+             ∑
+
+             ∏
+
+             √
+
+             ƒ
+
+             À
+
+             Ã
+
+           ¿7  2       ‚
+
+            Ä1  ?       È
+
+             ˆ
+
+             ˜
+
+                                               ¿S  ã              ¿C  §       #        Ä=  º       *         7         8         F         G         V         W         ]         ^         i         l         s         t       ¿S        ä        ÄM        ë         û         ü         ≠         Æ         Ω         æ       ¿o  5      ∆       ¿_  ?      À        ÄY  U      “         ﬂ         ‡         Ó         Ô         ˛         ˇ                                                             ¿o  ´      2        Äi  ∏      9         F         G         U         V         e         f       ¿ã        n       ¿{        s        Äu        z         á         à         ñ         ó         ¶         ß         ≠         Æ         π         º         √         ƒ       ¿ã  s      ⁄        ÄÖ  Ç      ·         Ó         Ô         ˝         ˛                         ¿ß  ¿             ¿ó  Ã              Äë  ›      "         /         0         >         ?         N         O         U         V         a         d         k         l       ¿ß  4      Ç        Ä°  A      â         ñ         ó         •         ¶         µ         ∂         À         Ã         ‘         ’         ›         ﬁ         Ê         Á         Ô                           	       ‡∑  ∏      "         (         )       ¿«  Œ      0  	       9         :  
+
+         ‡«  Í      D       ‡≈  ˜      G         M         T         X  
+           x         |         }         â         ä       ¿”  1      ù  	       ¶         ß  
+
+         ‡”  @      ±       ‡—  E      ¿         ∆         «  	       –         ”       ¿·  ^      ÿ  	       ·         ‚  
+
+         ¿·  r      Ï         Û         Ù  	       ˝                                                    ¿  ù      ''  	       0         1  
+
+       	  ¿  ≤      ;         ?         @       ¿Û  »      E         F         G         H         I         J         K         L         M       ‡˘  
+
+          S         T         W         X         [  	       d         g  
+
+           q         t  	       }         ~       ‡  c      Ç         à         â         ê         ë         ò         ô  	     ¿  à      ¢  	       ´         ¨  
+
+           ∂       ¿$  Û       æ         Œ         œ         ‹         ›         Í         Î         ˚  
+
+             	                  	                  	       "         #  	       ,         -         ;         ?         R         V         o     0sú''    0000MonoBehaviour:
+
+     
+    m_ObjectHideFlags: 0
+
+      m_CorrespondingSourceObject: {fileID: 0}
+
+      m_PrefabInstance:
+    {fileID: 0}
+
+      m_PrefabAsset: {fileID: 0}
+
+      m_GameObject: {fileID: 0}
+
+     
+    m_Enabled: 1
+
+      m_EditorHideFlags: 0
+
+      m_Script: {fileID: 11500000,
+    guid: 8a3bdb2cd68f901469e7cc149151eb49, type: 3}
+
+      m_Name: FAE_PostProcessingProfile_v1
+
+     
+    m_EditorClassIdentifier: 
+
+      debugViews:
+
+        m_Enabled: 1
+
+        m_Settings:
+
+         
+    mode: 0
+
+          depth:
+
+            scale: 0.027
+
+          motionVectors:
+
+           
+    sourceOpacity: 1
+
+            motionImageOpacity: 0
+
+            motionImageAmplitude:
+    16
+
+            motionVectorsOpacity: 1
+
+            motionVectorsResolution:
+    24
+
+            motionVectorsAmplitude: 64
+
+      fog:
+
+        m_Enabled: 1
+
+       
+    m_Settings:
+
+          excludeSkybox: 1
+
+      antialiasing:
+
+        m_Enabled:
+    1
+
+        m_Settings:
+
+          method: 0
+
+          fxaaSettings:
+
+           
+    preset: 2
+
+          taaSettings:
+
+            jitterSpread: 0.1
+
+           
+    sharpen: 0.3
+
+            stationaryBlending: 0.95
+
+            motionBlending:
+    0.85
+
+      ambientOcclusion:
+
+        m_Enabled: 0
+
+        m_Settings:
+
+         
+    intensity: 1
+
+          radius: 0.1
+
+          sampleCount: 10
+
+          downsampling:
+    0
+
+          forceForwardCompatibility: 0
+
+          ambientOnly: 0
+
+         
+    highPrecision: 1
+
+      screenSpaceReflection:
+
+        m_Enabled: 0
+
+       
+    m_Settings:
+
+          reflection:
+
+            blendType: 0
+
+            reflectionQuality:
+    2
+
+            maxDistance: 100
+
+            iterationCount: 256
+
+           
+    stepSize: 3
+
+            widthModifier: 0.5
+
+            reflectionBlur: 1
+
+           
+    reflectBackfaces: 0
+
+          intensity:
+
+            reflectionMultiplier:
+    1
+
+            fadeDistance: 100
+
+            fresnelFade: 1
+
+            fresnelFadePower:
+    1
+
+          screenEdgeMask:
+
+            intensity: 0.03
+
+      depthOfField:
+
+       
+    m_Enabled: 0
+
+        m_Settings:
+
+          focusDistance: 8.52
+
+          aperture:
+    0.6
+
+          focalLength: 42
+
+          useCameraFov: 1
+
+          kernelSize:
+    0
+
+      motionBlur:
+
+        m_Enabled: 1
+
+        m_Settings:
+
+          shutterAngle:
+    360
+
+          sampleCount: 10
+
+          frameBlending: 0
+
+      eyeAdaptation:
+
+       
+    m_Enabled: 1
+
+        m_Settings:
+
+          lowPercent: 45
+
+          highPercent:
+    95
+
+          minLuminance: 0.1
+
+          maxLuminance: 1
+
+          keyValue:
+    1
+
+          dynamicKeyValue: 0
+
+          adaptationType: 0
+
+          speedUp:
+    2
+
+          speedDown: 1
+
+          logMin: -8
+
+          logMax: 4
+
+      bloom:
+
+       
+    m_Enabled: 1
+
+        m_Settings:
+
+          bloom:
+
+            intensity: 1
+
+           
+    threshold: 3
+
+            softKnee: 1
+
+            radius: 3
+
+            antiFlicker:
+    0
+
+          lensDirt: {texture: {fileID: 0}, intensity: 1}
+
+      colorGrading:
+
+       
+    m_Enabled: 1
+
+        m_Settings:
+
+          tonemapping:
+
+            tonemapper:
+    2
+
+            neutralBlackIn: 0.02
+
+            neutralWhiteIn: 10
+
+           
+    neutralBlackOut: 0
+
+            neutralWhiteOut: 10
+
+            neutralWhiteLevel:
+    5.3
+
+            neutralWhiteClip: 10
+
+          basic:
+
+            postExposure:
+    0
+
+            temperature: 0
+
+            tint: 0
+
+            hueShift: 0
+
+           
+    saturation: 1
+
+            contrast: 1
+
+          channelMixer:
+
+           
+    red: {x: 1, y: 0, z: 0}
+
+            green: {x: 0, y: 1, z: 0}
+
+            blue:
+    {x: 0, y: 0, z: 1}
+
+            currentEditingChannel: 0
+
+          colorWheels:
+
+           
+    mode: 1
+
+            log:
+
+              slope:
+
+                r: 1
+
+               
+    g: 1
+
+                b: 1
+
+                a: 0
+
+              power:
+
+               
+    r: 1
+
+                g: 1
+
+                b: 1
+
+                a: 0
+
+             
+    offset:
+
+                r: 1
+
+                g: 1
+
+                b: 1
+
+               
+    a: 0
+
+            linear:
+
+              lift:
+
+                r: 1
+
+               
+    g: 1
+
+                b: 1
+
+                a: 0
+
+              gamma:
+
+               
+    r: 1
+
+                g: 1
+
+                b: 1
+
+                a: 0
+
+             
+    gain:
+
+                r: 1
+
+                g: 1
+
+                b: 1
+
+               
+    a: 0
+
+          curves:
+
+            master:
+
+              curve:
+
+               
+    m_Curve:
+
+                - time: 0
+
+                  value: 0
+
+                 
+    inSlope: 1
+
+                  outSlope: 1
+
+                  tangentMode: 0
+
+               
+    - time: 1
+
+                  value: 1
+
+                  inSlope: 1
+
+                 
+    outSlope: 1
+
+                  tangentMode: 0
+
+                m_PreInfinity:
+    2
+
+                m_PostInfinity: 2
+
+                m_RotationOrder: 0
+
+             
+    m_Loop: 0
+
+              m_ZeroValue: 0
+
+              m_Range: 1
+
+             
+    m_InternalLoopingCurve:
+
+                m_Curve: []
+
+                m_PreInfinity:
+    2
+
+                m_PostInfinity: 2
+
+                m_RotationOrder: 4
+
+           
+    red:
+
+              curve:
+
+                m_Curve:
+
+                - time:
+    0
+
+                  value: 0
+
+                  inSlope: 1
+
+                 
+    outSlope: 1
+
+                  tangentMode: 0
+
+                - time: 1
+
+                 
+    value: 1
+
+                  inSlope: 1
+
+                  outSlope: 1
+
+                 
+    tangentMode: 0
+
+                m_PreInfinity: 2
+
+                m_PostInfinity:
+    2
+
+                m_RotationOrder: 4
+
+              m_Loop: 0
+
+             
+    m_ZeroValue: 0
+
+              m_Range: 1
+
+              m_InternalLoopingCurve:
+
+               
+    m_Curve: []
+
+                m_PreInfinity: 2
+
+                m_PostInfinity:
+    2
+
+                m_RotationOrder: 4
+
+            green:
+
+              curve:
+
+               
+    m_Curve:
+
+                - time: 0
+
+                  value: 0
+
+                 
+    inSlope: 1
+
+                  outSlope: 1
+
+                  tangentMode: 0
+
+               
+    - time: 1
+
+                  value: 1
+
+                  inSlope: 1
+
+                 
+    outSlope: 1
+
+                  tangentMode: 0
+
+                m_PreInfinity:
+    2
+
+                m_PostInfinity: 2
+
+                m_RotationOrder: 4
+
+             
+    m_Loop: 0
+
+              m_ZeroValue: 0
+
+              m_Range: 1
+
+             
+    m_InternalLoopingCurve:
+
+                m_Curve: []
+
+                m_PreInfinity:
+    2
+
+                m_PostInfinity: 2
+
+                m_RotationOrder: 4
+
+           
+    blue:
+
+              curve:
+
+                m_Curve:
+
+                - time:
+    0
+
+                  value: 0
+
+                  inSlope: 1
+
+                 
+    outSlope: 1
+
+                  tangentMode: 0
+
+                - time: 1
+
+                 
+    value: 1
+
+                  inSlope: 1
+
+                  outSlope: 1
+
+                 
+    tangentMode: 0
+
+                m_PreInfinity: 2
+
+                m_PostInfinity:
+    2
+
+                m_RotationOrder: 4
+
+              m_Loop: 0
+
+             
+    m_ZeroValue: 0
+
+              m_Range: 1
+
+              m_InternalLoopingCurve:
+
+               
+    m_Curve: []
+
+                m_PreInfinity: 2
+
+                m_PostInfinity:
+    2
+
+                m_RotationOrder: 4
+
+            hueVShue:
+
+              curve:
+
+               
+    m_Curve: []
+
+                m_PreInfinity: 2
+
+                m_PostInfinity:
+    2
+
+                m_RotationOrder: 4
+
+              m_Loop: 1
+
+             
+    m_ZeroValue: 0.5
+
+              m_Range: 1
+
+              m_InternalLoopingCurve:
+
+               
+    m_Curve: []
+
+                m_PreInfinity: 2
+
+                m_PostInfinity:
+    2
+
+                m_RotationOrder: 4
+
+            hueVSsat:
+
+              curve:
+
+               
+    m_Curve: []
+
+                m_PreInfinity: 2
+
+                m_PostInfinity:
+    2
+
+                m_RotationOrder: 4
+
+              m_Loop: 1
+
+             
+    m_ZeroValue: 0.5
+
+              m_Range: 1
+
+              m_InternalLoopingCurve:
+
+               
+    m_Curve: []
+
+                m_PreInfinity: 2
+
+                m_PostInfinity:
+    2
+
+                m_RotationOrder: 4
+
+            satVSsat:
+
+              curve:
+
+               
+    m_Curve: []
+
+                m_PreInfinity: 2
+
+                m_PostInfinity:
+    2
+
+                m_RotationOrder: 4
+
+              m_Loop: 0
+
+             
+    m_ZeroValue: 0.5
+
+              m_Range: 1
+
+              m_InternalLoopingCurve:
+
+               
+    m_Curve: []
+
+                m_PreInfinity: 2
+
+                m_PostInfinity:
+    2
+
+                m_RotationOrder: 4
+
+            lumVSsat:
+
+              curve:
+
+               
+    m_Curve: []
+
+                m_PreInfinity: 2
+
+                m_PostInfinity:
+    2
+
+                m_RotationOrder: 4
+
+              m_Loop: 0
+
+             
+    m_ZeroValue: 0.5
+
+              m_Range: 1
+
+              m_InternalLoopingCurve:
+
+               
+    m_Curve: []
+
+                m_PreInfinity: 2
+
+                m_PostInfinity:
+    2
+
+                m_RotationOrder: 4
+
+            e_CurrentEditingCurve: 0
+
+           
+    e_CurveY: 1
+
+            e_CurveR: 0
+
+            e_CurveG: 0
+
+            e_CurveB:
+    0
+
+        <isDirty>k__BackingField: 0
+
+        <bakedLut>k__BackingField: {fileID:
+    0}
+
+      userLut:
+
+        m_Enabled: 1
+
+        m_Settings: {lut: {fileID:
+    2800000, guid: 8c0cdd4f39befe14b87bf44dad8b96bc, type: 3},
+
+          contribution:
+    1}
+
+      chromaticAberration:
+
+        m_Enabled: 0
+
+        m_Settings: {spectralTexture:
+    {fileID: 0}, intensity: 0.1}
+
+      grain:
+
+        m_Enabled: 0
+
+        m_Settings:
+
+         
+    colored: 1
+
+          intensity: 0.175
+
+          size: 1
+
+          luminanceContribution:
+    0.8
+
+      vignette:
+
+        m_Enabled: 1
+
+        m_Settings:
+
+          mode:
+    0
+
+          color:
+
+            r: 0
+
+            g: 0
+
+            b: 0
+
+           
+    a: 1
+
+          center: {x: 0.5, y: 0.5}
+
+          intensity: 0.4
+
+         
+    smoothness: 0.2
+
+          roundness: 1
+
+          mask: {fileID: 0}
+
+         
+    opacity: 1
+
+          rounded: 0
+
+      dithering:
+
+        m_Enabled: 0
+
+       
+    m_Settings: monitors
+
+      : currentMonitorID
+
+      1: refreshOnPlay
+
+     
+    1: histogramMode
+
+      3: waveformExposure
+
+      0.17833333: waveformY
+
+     
+    0: waveformR
+
+      1: waveformG
+
+      1: waveformB
+
+      1: paradeExposure
+
+     
+    0.12: vectorscopeExposure
+
+      0.12: vectorscopeShowBackground
+
+      1: ''onoBehaviourm_ObjectHideFlags0m_CorrespondingSourceObjectfileID0m_PrefabInstancefileID0m_PrefabAssetfileID0m_GameObjectfileID0m_Enabled1m_EditorHideFlags0m_ScriptfileID11500000guid8a3bdb2cd68f901469e7cc149151eb49type3m_NameFAE_PostProcessingProfile_v1m_EditorClassIdentifierdebugViewsm_Enabled1m_Settingsmode0depthscale0.027motionVectorssourceOpacity1motionImageOpacity0motionImageAmplitude16motionVectorsOpacity1motionVectorsResolution24motionVectorsAmplitude64fogm_Enabled1m_SettingsexcludeSkybox1antialiasingm_Enabled1m_Settingsmethod0fxaaSettingspreset2taaSettingsjitterSpread0.1sharpen0.3stationaryBlending0.95motionBlending0.85ambientOcclusionm_Enabled0m_Settingsintensity1radius0.1sampleCount10downsampling0forceForwardCompatibility0ambientOnly0highPrecision1screenSpaceReflectionm_Enabled0m_SettingsreflectionblendType0reflectionQuality2maxDistance100iterationCount256stepSize3widthModifier0.5reflectionBlur1reflectBackfaces0intensityreflectionMultiplier1fadeDistance100fresnelFade1fresnelFadePower1screenEdgeMaskintensity0.03depthOfFieldm_Enabled0m_SettingsfocusDistance8.52aperture0.6focalLength42useCameraFov1kernelSize0motionBlurm_Enabled1m_SettingsshutterAngle360sampleCount10frameBlending0eyeAdaptationm_Enabled1m_SettingslowPercent45highPercent95minLuminance0.1maxLuminance1keyValue1dynamicKeyValue0adaptationType0speedUp2speedDown1logMin-8logMax4bloomm_Enabled1m_Settingsbloomintensity1threshold3softKnee1radius3antiFlicker0lensDirttexturefileID0intensity1colorGradingm_Enabled1m_Settingstonemappingtonemapper2neutralBlackIn0.02neutralWhiteIn10neutralBlackOut0neutralWhiteOut10neutralWhiteLevel5.3neutralWhiteClip10basicpostExposure0temperature0tint0hueShift0saturation1contrast1channelMixerredx1y0z0greenx0y1z0bluex0y0z1currentEditingChannel0colorWheelsmode1logsloper1g1b1a0powerr1g1b1a0offsetr1g1b1a0linearliftr1g1b1a0gammar1g1b1a0gainr1g1b1a0curvesmastercurvem_Curvetime0value0inSlope1outSlope1tangentMode0time1value1inSlope1outSlope1tangentMode0m_PreInfinity2m_PostInfinity2m_RotationOrder0m_Loop0m_ZeroValue0m_Range1m_InternalLoopingCurvem_Curvem_PreInfinity2m_PostInfinity2m_RotationOrder4redcurvem_Curvetime0value0inSlope1outSlope1tangentMode0time1value1inSlope1outSlope1tangentMode0m_PreInfinity2m_PostInfinity2m_RotationOrder4m_Loop0m_ZeroValue0m_Range1m_InternalLoopingCurvem_Curvem_PreInfinity2m_PostInfinity2m_RotationOrder4greencurvem_Curvetime0value0inSlope1outSlope1tangentMode0time1value1inSlope1outSlope1tangentMode0m_PreInfinity2m_PostInfinity2m_RotationOrder4m_Loop0m_ZeroValue0m_Range1m_InternalLoopingCurvem_Curvem_PreInfinity2m_PostInfinity2m_RotationOrder4bluecurvem_Curvetime0value0inSlope1outSlope1tangentMode0time1value1inSlope1outSlope1tangentMode0m_PreInfinity2m_PostInfinity2m_RotationOrder4m_Loop0m_ZeroValue0m_Range1m_InternalLoopingCurvem_Curvem_PreInfinity2m_PostInfinity2m_RotationOrder4hueVShuecurvem_Curvem_PreInfinity2m_PostInfinity2m_RotationOrder4m_Loop1m_ZeroValue0.5m_Range1m_InternalLoopingCurvem_Curvem_PreInfinity2m_PostInfinity2m_RotationOrder4hueVSsatcurvem_Curvem_PreInfinity2m_PostInfinity2m_RotationOrder4m_Loop1m_ZeroValue0.5m_Range1m_InternalLoopingCurvem_Curvem_PreInfinity2m_PostInfinity2m_RotationOrder4satVSsatcurvem_Curvem_PreInfinity2m_PostInfinity2m_RotationOrder4m_Loop0m_ZeroValue0.5m_Range1m_InternalLoopingCurvem_Curvem_PreInfinity2m_PostInfinity2m_RotationOrder4lumVSsatcurvem_Curvem_PreInfinity2m_PostInfinity2m_RotationOrder4m_Loop0m_ZeroValue0.5m_Range1m_InternalLoopingCurvem_Curvem_PreInfinity2m_PostInfinity2m_RotationOrder4e_CurrentEditingCurve0e_CurveY1e_CurveR0e_CurveG0e_CurveB0<isDirty>k__BackingField0<bakedLut>k__BackingFieldfileID0userLutm_Enabled1m_SettingslutfileID2800000guid8c0cdd4f39befe14b87bf44dad8b96bctype3contribution1chromaticAberrationm_Enabled0m_SettingsspectralTexturefileID0intensity0.1grainm_Enabled0m_Settingscolored1intensity0.175size1luminanceContribution0.8vignettem_Enabled1m_Settingsmode0colorr0g0b0a1centerx0.5y0.5intensity0.4smoothness0.2roundness1maskfileID0opacity1rounded0ditheringm_Enabled0m_SettingsmonitorscurrentMonitorID1refreshOnPlay1histogramMode3waveformExposure0.17833333waveformY0waveformR1waveformG1waveformB1paradeExposure0.12vectorscopeExposure0.12vectorscopeShowBackground1 dc4753f55ef5f3f†bú''''   `K  0000  ¿$  d901             ¿$  dd01                                ‡	   0502    :          @          A        ‡   3702    Q          W          X        ‡   3f02    e          k          l        ‡    702    x          ~             	       à          â          ö          õ        ‡!   5702    £          ©          ±          µ   
+
+       
+           ’          Ÿ          ⁄          ‡          ¸                      
+
+
+       
+         ¿?   df02      	       &         ''''  
+
+
+             ¿?   e702    1         5         6       ¿1   ef02    ;         @         E       ¿?   f702    R         _         `         r         s         á         â         ù         û         µ         ∑         Õ         œ       ¿G   eb03    “  	       €         ‹  
+
+
+       
+         ¿G   f303    Ê         Û         Ù       ¿]   fb03       	       	         
+
+
+       
+      
+
+
+             ¿]   0304                             ¿S   0b04    ''''         -         .       ¿]   1304    9         E         H         O         R         d         h         v         z       ¿q   2704    ä  	       ì         î  
+
+
+       
+         ¿q   2f04    û  	       ß         ®         Æ         ±         º         æ                   À         ‰         Â                  Ò         ˛         ˇ       ¿ó   4f04      	                  
+
+
+       
+         ¿ó   5704    (  
+
+
+             ¿â   5b04    2  	       ;         <         M         N         Y         \         j         m         u         v         É         Ü         î         ï         •         ¶  	     ¿ì   f505    Ø         √         ƒ         –         ”         ﬁ         ﬂ         Ô                ¿ó          ˛  	                       ¿ß   Û         	       
+
+       
+             !  
+
+
+             ¿ß   scal    +         8         <         D         G         R         T         `         a  
+
+
+       
+           k         l  
+
+
+             ¿≥   
+
+
+               v  	                Ä  
+
+
+       
+         ¿≥          ä         ñ         ô         §         ¶         ≥         ¥       ¿œ   ?       ¡  	                 À  
+
+
+       
+         ¿œ   `       ’  
+
+
+               ﬂ         ·         Ï         Ó         ˙         ˝         	         
+
+
+       
+                               "         #         1         2         9         :  	       C         D         J         L         R         S       ¿È   city    X  	       a         b  
+
+
+       
+         ¿È   tion    l       ¿·   nVec    q  	       z         {  	       Ñ         Ö         ç         é         î         ï         †         °       ‡È           ©       ‡Á   
+
+
+       
+           ∞         ∂         ∑  	       ¿         ¡       ¿∑  #       Õ  	       ÷         ◊  
+
+
+       
+         ¿±  2       ·       ¿ˇ   ?       Ï  
+
+
+               ˆ         ˜                  	                           (         )         8         :         K         N         ^         `       ¿  Y      e         q         r         }         ~         Ç         É         ã         å  
+
+
+       
+           ñ         ó         ü         †       ¿)  Æ      ¨       ‡  ∏      Ø         ∞         ±         ≤         ≥         ¥         µ       ‡  Í      ∫         ª         º         Ω         æ         ø         ¿       ‡''''        ƒ         ≈         ∆         «         »         …                   ﬂ         ‡       ¿m  E      Î         Ô                ¿M  Y      Û       ¿9  ^      ¯         ˘         ˙         ˚         ¸         ˝         ˛         ˇ                 ¿C  é                                          	         
+
+
+       
+                                      ¿M  æ                                                                                     ¿m  ˙      !       ¿Y  
+
+
+       
+          %         &         ''''         (         )         *         +         ,         -       ¿c  V      2         3         4         5         6         7         8         9         :       ¿m  à      >         ?         @         A         B         C         D         E         F       ¿±  §      L       ¿°  ¶      R       ¿ë  ´      W       Äã  ≠    ¿Ä  Æ      ^         b         c         h         i         p         q         y         z         Ö       ¿ã  ttin    Ü         ä         ã         ê         ë         ò         ô         °         ¢         ≠         Æ         ª         º                   À         ⁄         €         ·         ‚         Ì         Ó         ı         ˆ       ¿°  rpen            Äõ  g0.9             
+
+       
+             !         /         0         ?         @       ¿”  ampl    C       ¿√  atib    H       ÄΩ  ghPr  ¿≤  scre    O         S         T         Y         Z         a         b         j         k         v       ¿Ω  0.5r    w         {         |         Å         Ç         â         ä         í         ì         û         ü         ¨         ≠         ª         º         À         Ã         “         ”         ﬁ         ﬂ         Ê         Á       ¿”  t10f    ˝        ÄÕ  tati    	         	         	         
+
+       
+    	         !	         0	         1	       ¿  eyVa    6	       ¿ı  peed    ;	       ÄÔ  8log  ¿‰  mm_E    B	         F	         G	         L	         M	         T	         U	         ]	         ^	         i	       ¿Ô  m_Se    j	         n	         o	         t	         u	         |	         }	         Ö	         Ü	         ë	         í	         ü	         †	         Æ	         Ø	         æ	         ø	         ≈	         ∆	         —	         “	         Ÿ	         ⁄	       ¿  er1g    	        Äˇ  fset    ˜	         
+
+
+       
+             
+
+
+                 
+
+
+                 
+
+
+                 #
+
+
+       
+             $
+
+
+               ¿7  ceCo    (
+
+
+               ¿''''  em_E    -
+
+
+       
+           Ä!  e0co  ¿  0a1c    4
+
+
+                 8
+
+
+                 9
+
+
+       
+             >
+
+
+                 ?
+
+
+                 F
+
+
+                 G
+
+
+       
+             O
+
+
+                 P
+
+
+                 [
+
+
+               ¿!  orID    \
+
+
+       
+             `
+
+
+                 a
+
+
+                 f
+
+
+                 g
+
+
+       
+             n
+
+
+                 o
+
+
+                 w
+
+
+                 x
+
+
+       
+             É
+
+
+                 Ñ
+
+
+                 ë
+
+
+                 í
+
+
+       
+             †
+
+
+                 °
+
+
+                 ∞
+
+
+                 ±
+
+
+       
+             ∑
+
+
+                 ∏
+
+
+                 √
+
+
+               '
