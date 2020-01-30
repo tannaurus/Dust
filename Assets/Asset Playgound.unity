@@ -3087,7 +3087,7 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1008154796298697359}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1364365094
+--- !u!114 &1364365096
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3099,12 +3099,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: 3707495b9603c4dc49d26efca6916fbe, type: 2}
+  sharedProfile: {fileID: 11400000, guid: a532fad6a55bf024a87605fe1efeeb67, type: 2}
   isGlobal: 1
   blendDistance: 0
   weight: 1
   priority: 0
---- !u!114 &1364365095
+--- !u!114 &1364365097
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3122,7 +3122,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   stopNaNPropagation: 1
   finalBlitToCameraTarget: 0
-  antialiasingMode: 2
+  antialiasingMode: 0
   temporalAntialiasing:
     jitterSpread: 0.75
     sharpness: 0.25
@@ -3158,8 +3158,8 @@ MonoBehaviour:
       colorBlindnessType: 0
       colorBlindnessStrength: 1
   m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
-  m_ShowToolkit: 1
-  m_ShowCustomSorter: 1
+  m_ShowToolkit: 0
+  m_ShowCustomSorter: 0
   breakBeforeColorGrading: 0
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
