@@ -329,9 +329,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   title: Stick
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 758aaea14da4c467194fd5cd5882fb8f, type: 3}
   actionKey: 102
   location: 3
+  lastDropped: 0
+  dropSpeed: 15
+  dropDistance: 6
 --- !u!135 &425781757
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -357,6 +360,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f9fcb839ad8245f08eca67810ebf420, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatHeight: 25
-  floatOffset: 0.2
-  floatSpeed: 2
