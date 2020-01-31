@@ -1169,13 +1169,7 @@ PrefabInstance:
       value: Player_Model
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 2283550828012378775, guid: cdbf78fddbd8949bd9a3fa6da694aba4, type: 3}
-    - {fileID: 2283550827941251621, guid: cdbf78fddbd8949bd9a3fa6da694aba4, type: 3}
-    - {fileID: 2283550829604222773, guid: cdbf78fddbd8949bd9a3fa6da694aba4, type: 3}
-    - {fileID: 2283550828435523605, guid: cdbf78fddbd8949bd9a3fa6da694aba4, type: 3}
-    - {fileID: 2283550828912722670, guid: cdbf78fddbd8949bd9a3fa6da694aba4, type: 3}
-    - {fileID: 2283550828196370584, guid: cdbf78fddbd8949bd9a3fa6da694aba4, type: 3}
-    - {fileID: 2283550828113969476, guid: cdbf78fddbd8949bd9a3fa6da694aba4, type: 3}
+    - {fileID: 2019409250, guid: cdbf78fddbd8949bd9a3fa6da694aba4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cdbf78fddbd8949bd9a3fa6da694aba4, type: 3}
 --- !u!4 &1008154797500581870 stripped
 Transform:

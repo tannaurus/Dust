@@ -21,7 +21,7 @@ public class Player_Camera : MonoBehaviour
 
 	private void Update()
 	{
-		if (inventoryInputListener.inventoryOpen) {
+		if (inventoryInputListener && inventoryInputListener.inventoryOpen) {
 				return;
 		}
 		float X = Input.GetAxis("Mouse X") * mouseSpeed;
