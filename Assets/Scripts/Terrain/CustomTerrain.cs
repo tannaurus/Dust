@@ -1,6 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -58,6 +59,15 @@ public class CustomTerrain : MonoBehaviour {
                              terrainData.heightmapHeight];
             
     }
+
+		public void Veronoi() {
+			Debug.Log("VeronaI");
+			float[,] heightMap = GetHeightMap();
+			int[] randomPoint = new int[]{ (int) Mathf.Round(UnityEngine.Random.Range(0, terrainData.heightmapWidth)), (int) Mathf.Round(UnityEngine.Random.Range(0, terrainData.heightmapWidth)) };
+			Debug.Log(randomPoint);
+			heightMap[randomPoint[0], randomPoint[1]] = 100f;
+			terrainData.SetHeights(0, 0, heightMap);
+		}
 
     public void Perlin()
     {

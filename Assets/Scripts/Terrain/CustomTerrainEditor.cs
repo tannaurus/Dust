@@ -29,6 +29,7 @@ public class CustomTerrainEditor : Editor
     bool showLoadHeights = false;
     bool showPerlinNoise = false;
     bool showMultiplePerlin = false;
+		bool showVeronoi = false;
 
     void OnEnable()
     {
@@ -97,6 +98,15 @@ public class CustomTerrainEditor : Editor
                 terrain.Perlin();
             }
         }
+
+				showVeronoi = EditorGUILayout.Foldout(showVeronoi, "Veronoi");
+				if (showVeronoi) {
+					EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
+					GUILayout.Label("Veronoi", EditorStyles.boldLabel);
+					if (GUILayout.Button("Veronoi")) {
+						terrain.Veronoi();
+					}
+				}
 
         showMultiplePerlin = EditorGUILayout.Foldout(showMultiplePerlin, "Multiple Perlin Noise");
         if (showMultiplePerlin)
