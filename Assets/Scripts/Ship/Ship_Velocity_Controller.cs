@@ -4,38 +4,62 @@ using UnityEngine;
 
 public class Ship_Velocity_Controller : MonoBehaviour
 {
+    public float speed = 90f;
+		public float speedMultiplier = 50f;
+		private float maxSpeed = 100f;
+		public int gear = 0;
+		private int maxGear = 3;
 
-	public float thrust = 0f;
+    // Update is called once per frame
+    void Update()
+    {
+				// AmbientSpeedController();
+				PlayerSpeedController();
+				Transmission();
+				UpdateShipPosition();
+		}
 
-	private int gear = 1;
-	private int maxGear = 5;
+		void AmbientSpeedController() {
+			// Prevent the ship from moving backwards too fast.
+			float clampedForward = Mathf.Clamp(transform.forward.y, -0.8f, 0.5f);
+			float speedOffset = clampedForward * Time.deltaTime;
 
-	public Rigidbody engine;
+			speed -= speedOffset;
+		}
 
-	public void FixedUpdate() {
-		ApplyTrust();
-	}
+		void PlayerSpeedController() {
+			float gearMultiplier = GetGearMultiplier();
+			speedMultiplier = gearMultiplier;
+		}
 
-	public void Update() {
-		Transmission();
-	}
+		void UpdateShipPosition() {
+			transform.position += transform.forward * Time.deltaTime * (speed * speedMultiplier);
+		}
 
-	// Getters
+    void Transmission() {
+        if (Input.GetKeyDown(KeyCode.E) && gear < maxGear) {
+					gear++;
+				}
+				if (Input.GetKeyDown(KeyCode.Q) && gear > 0) {
+					gear--;
+				}
+				if (Input.GetKeyDown(KeyCode.R) && gear != 0) {
+					gear = 0;
+				}
+    }
 
-	// Actors
-	private void ApplyTrust() {
-		engine.AddForce(transform.forward * thrust * 100f);
-	}
-
-	// Watchers
-	private void Transmission() {
-			if (Input.GetKeyDown(KeyCode.E) && gear < maxGear) {
-				thrust++;
+		float GetGearMultiplier() {
+			switch(gear) {
+				case 0:
+					return 0f;
+				case 1:
+					return 4f;
+				case 2:
+					return 8f;
+				case 3:
+					return 15f;
+				default:
+					return 0f;
 			}
-			if (Input.GetKeyDown(KeyCode.Q) && gear > 0) {
-				thrust--;
-			}
-	}
-
-
+		}
 }

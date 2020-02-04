@@ -12,7 +12,7 @@ public static class Utils {
         float maxValue = 0;
         for (int i = 0; i < oct; i++)
         {
-            total += Mathf.PerlinNoise(x * frequency, y * frequency) * amplitude;
+            total += Mathf.PerlinNoise(x, y) * amplitude;
             maxValue += amplitude;
             amplitude *= persistance;
             frequency *= 2;

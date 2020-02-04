@@ -20,11 +20,14 @@ public class CustomTerrainEditor : Editor
     SerializedProperty perlinPersistance;
     SerializedProperty perlinHeightScale;
     SerializedProperty resetTerrain;
+		SerializedProperty tileSize;
+		SerializedProperty tilePrefab;
 
     GUITableState perlinParameterTable;
     SerializedProperty perlinParameters;
 
     //fold outs ------------
+		bool showSettings = false;
     bool showRandom = false;
     bool showLoadHeights = false;
     bool showPerlinNoise = false;
@@ -46,6 +49,8 @@ public class CustomTerrainEditor : Editor
         resetTerrain = serializedObject.FindProperty("resetTerrain");
         perlinParameterTable = new GUITableState("perlinParameterTable");
         perlinParameters = serializedObject.FindProperty("perlinParameters");
+				tileSize = serializedObject.FindProperty("tileSize");
+				tilePrefab = serializedObject.FindProperty("tilePrefab");
     }
 
     public override void OnInspectorGUI()
@@ -53,7 +58,15 @@ public class CustomTerrainEditor : Editor
         serializedObject.Update();
 
         CustomTerrain terrain = (CustomTerrain) target;
-        EditorGUILayout.PropertyField(resetTerrain);
+
+				showSettings = EditorGUILayout.Foldout(showSettings, "Settings");
+				if (showSettings) {
+					EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
+					GUILayout.Label("General world settings", EditorStyles.boldLabel);
+					EditorGUILayout.PropertyField(tileSize);
+        	EditorGUILayout.PropertyField(resetTerrain);
+					EditorGUILayout.PropertyField(tilePrefab);
+				}
 
         showRandom = EditorGUILayout.Foldout(showRandom, "Random");
         if (showRandom)
@@ -136,6 +149,11 @@ public class CustomTerrainEditor : Editor
         {
             terrain.ResetTerrain();
         }
+
+				EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
+				if (GUILayout.Button("Destroy Terrain")) {
+					terrain.DestroyAllTiles();
+				}
 
         serializedObject.ApplyModifiedProperties();
     }
